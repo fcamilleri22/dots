@@ -63,7 +63,14 @@ mysql_secure_installation
 
 #Atom plugins
 #TODO: Fill as you go along.
-apm install gruvbox-plus-syntax
+apm install                                                                     \
+    gruvbox-plus-syntax                                                         \
+    pigments                                                                    \
+    minimap                                                                     \
+    minimap-pigments                                                            \
+    minimap-highlight-selected                                                  \
+
+
 
 #TODO: Get Settings/Backups from git
 #i3
