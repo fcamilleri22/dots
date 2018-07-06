@@ -71,21 +71,15 @@ apm install                                                                     
     minimap-highlight-selected                                                  \
 
 
-
 #TODO: Get Settings/Backups/configs from git
 #i3config
 #zshrc
 #xinitrc
 #i3lock
 
-
 #TODO: ZSH configs
 #oh-my-zsh from the AUR ends up in /usr/share/oh-my-zsh
-#Keep your ZSHRC portable!
-
-#TODO: Configure Pywal, polybar
-#Add
-
-#TODO: and then rebuild this using more minimal iso, possibly just straight up arch
 
 #TODO: Alter firefox fonts in ~/.mozilla/firefox/*.default
+
+#TODO: Configure Pywal(finish i3 config), polybar, finalize fonts
