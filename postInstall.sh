@@ -72,10 +72,11 @@ apm install                                                                     
 
 
 
-#TODO: Get Settings/Backups from git
-#i3
-#zsh
+#TODO: Get Settings/Backups/configs from git
+#i3config
+#zshrc
 #xinitrc
+#i3lock
 
 
 #TODO: ZSH configs
