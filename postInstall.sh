@@ -1,4 +1,17 @@
 #!/usr/bin/bash
+#Author: Frank Camilleri
+#This Script is to be invoked right after a fresh install of Manjaro i3
+#Community Edition straight from wget using:
+#bash -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/$BRANCH/postInstall.sh -O -)"
+
+BRANCH="master"
+
+#Determine if root or 'nobody'. If either, exit script.
+if [ $UID -eq 0 ] || [ $UID -eq 99 ]
+then
+    echo "ERROR: This script must be invoked by a regular, non-root user. Exiting."
+    exit 1
+fi
 
 #Update Repos/get nearest repos -- omit ibiblio, is slow.
 sudo pacman-mirrors -c United_States
@@ -42,9 +55,9 @@ sudo pacman -S                                                                  
     python-pywal                                                                \
     polybar                                                                     \
     nerd-fonts-terminus                                                         \
-    adobe-source-code-pro-fonts                                                 \
-    adobe-source-sans-pro-fonts                                                 \
-    adobe-source-serif-pro-fonts                                                \
+    ttf-ubuntu-font-family                                                      \
+    stow                                                                        \
+
 
 #Update package caches/Install Packages from Arch User Repository
 yaourt -Syu
@@ -74,16 +87,30 @@ apm install                                                                     
     character-table                                                             \
     language-ini                                                                \
 
+#TODO Create "Projects" Directory, and properly clone entire dots repo
 
-#TODO: Get Settings/Backups/configs from git -- then link them
+#TODO: Get/link Dotfiles/other configs
 #i3config
 #zshrc
 #xinitrc
-#i3lock
+#i3lock?
+
+#Clear out prebaked configs
+rm -rf $HOME/.i3
+#Stow configs from repo
+stow --dir=$HOME/Projects/dots/i3 --target=$HOME/
+
 
 #TODO: ZSH configs
 #oh-my-zsh from the AUR ends up in /usr/share/oh-my-zsh
 
 #TODO: Alter firefox fonts in ~/.mozilla/firefox/*.default
 
-#TODO: Configure Pywal(finish i3 config), polybar, finalize fonts
+#TODO: Configure theme colors (Pywal, polybar, oomox, etc)
+#TODO: Fonts
+#Serif: TBD
+#Sans-Serif: Ubuntu 12
+#Mono (terminal): Nerd Fonts Terminus
+#Mono (editor): Nerd Fonts Fura Code
+
+#TODO: Frank Specific Addendums (secrets, other git repos, wallpaper library)
