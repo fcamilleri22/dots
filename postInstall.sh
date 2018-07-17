@@ -28,6 +28,8 @@ sudo pacman -Syyu
 sudo pacman -S                                                                  \
     base-devel                                                                  \
     yaourt                                                                      \
+    dnsutils                                                                    \
+    gucharmap                                                                   \
     mariadb                                                                     \
     mysql-workbench                                                             \
     nodejs                                                                      \
@@ -69,9 +71,11 @@ apm install                                                                     
     minimap                                                                     \
     minimap-pigments                                                            \
     minimap-highlight-selected                                                  \
+    character-table                                                             \
+    language-ini                                                                \
 
 
-#TODO: Get Settings/Backups/configs from git
+#TODO: Get Settings/Backups/configs from git -- then link them
 #i3config
 #zshrc
 #xinitrc
