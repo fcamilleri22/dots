@@ -96,7 +96,6 @@ sudo sed -i '/VerbosePkgLists/s/^#//' /etc/pacman.conf
 
 #Edit default /etc/nanorc:
 sudo sed -i '/set autoindent/s/^#//'                            /etc/nanorc
-sudo sed -i '/set boldtext/s/^#//'                              /etc/nanorc
 sudo sed -i '/set mouse/s/^#//'                                 /etc/nanorc
 sudo sed -i '/set linenumbers/s/^#//'                           /etc/nanorc
 sudo sed -i '/set tabstospaces/s/^#//'                          /etc/nanorc
@@ -218,23 +217,19 @@ apm install                                                                     
 mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
-#TODO: Get/link Dotfiles/other configs
-#i3config
-#zshrc
-#xinitrc
-#i3lock?
-
-#Clear out prebaked configs to prevent stow conflicts
+#Clear out prebaked configs to prevent stow conflicts, then stow repo config.
 rm -rf $HOME/.i3
-rm -rf $HOME/.config/polybar
-#Stow configs from repo
 stow --dir=$DOTDIR/ --target=$HOME/ i3
+
+rm -rf $HOME/.config/polybar
 stow --dir=$DOTDIR/ --target=$HOME/ polybar
 
+rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
+stow --dir=$DOTDIR/ --target=$HOME/ shell
 
-
-#TODO: ZSH configs
-#oh-my-zsh from the AUR ends up in /usr/share/oh-my-zsh
+#TODO: Config other desktop environment programs.
+#i3lock
+#dunst
 
 #TODO: Alter firefox fonts in ~/.mozilla/firefox/*.default
 
