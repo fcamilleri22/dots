@@ -61,11 +61,14 @@
 #download speeds, and edit (not replace) other system-wide config files in /etc/
 #such as GNU Nano and the Pacman/Yaourt package managers.
 ################################################################################
+
 BRANCH="master" #what git branch of 'dots' to fetch other files from
+PROJDIR="$HOME/Projects" #Where you want your "projects" directory to live
+DOTDIR="$PROJDIR/dots" #Where you want to put the rest of the 'dots' git repo.
 
 #Determine if root or 'nobody'. If either, exit script.
 #Running this as root will make your system more vulnerable to the possibility
-#of a malicious AUR PKGBUILD script.
+#of a malicious AUR PKGBUILD script, as well as screw up the position of $HOME.
 if [ $UID -eq 0 ] || [ $UID -eq 99 ]
 then
     echo "ERROR: This script must be invoked by a regular, non-root user. Exiting."
@@ -161,7 +164,8 @@ sudo pacman -S                                                                  
 #ttf-ubuntu-font-family: systemwide default sans-serif fonts. They're pretty.
 
 #Yaourt has almost identical arguments to Pacman.
-#Syy means "force package database refresh, but do NOT do any updates yet (no 'u').
+#Syy means "force package database refresh, but do NOT do any updates yet (no 'u')".
+#Also, DO NOT use yaourt as root -- let the AURs included PKGBUILDs handle perms.
 yaourt -Syy
 
 #Then, install from the User Repository...
@@ -172,10 +176,14 @@ yaourt -S                                                                       
     nerd-fonts-fira-code
 
 #smartgit: a really good Git GUI. Requires paid license, but can be used for free.
-# Please send these people your money.
+# Please send these people your money. They deserve it.
 #oh-my-zsh-git: plugin manager for zsh, from github.com/robbyrussell/oh-my-zsh
 #nerd-fonts-fira-code: AKA 'Fura Code' - font used in editors/other code not inside
-#live terminals. Includes emojis and icons.
+# live terminals. Includes emojis and icons, as well as programming ligatures.
+
+################################################################################
+#3.) Initial setup for MariaDB, Atom Editor, and NodeJS Globals
+################################################################################
 
 #Set up MariaDB (see the ArchWiki for more info)
 sudo mysql_install_db                                                           \
@@ -195,8 +203,18 @@ apm install                                                                     
     minimap-pigments                                                            \
     minimap-highlight-selected                                                  \
     language-ini                                                                \
+    language-terraform                                                          \
 
-#TODO Create "Projects" Directory, and properly clone entire dots repo
+#TODO: nodejs globals, like underscore-cli
+#npm install -g...
+
+################################################################################
+#4.) Create Projects directory, clone full 'dots' repository inside of it,
+#and replace default user configurations with symlinks to our configs via stow.
+################################################################################
+
+mkdir $PROJDIR
+git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
 #TODO: Get/link Dotfiles/other configs
 #i3config
@@ -208,8 +226,8 @@ apm install                                                                     
 rm -rf $HOME/.i3
 rm -rf $HOME/.config/polybar
 #Stow configs from repo
-stow --dir=$HOME/Projects/dots/ --target=$HOME/ i3
-stow --dir=$HOME/Projects/dots/ --target=$HOME/ polybar
+stow --dir=$DOTDIR/ --target=$HOME/ i3
+stow --dir=$DOTDIR/ --target=$HOME/ polybar
 
 
 
