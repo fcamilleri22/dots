@@ -142,10 +142,11 @@ sudo pacman -S                                                                  
 #yaourt: a secondary package manager for Arch Linux User Repository (AUR) packages.
 #bind-tools: dns tools such as 'dig' and 'host.'
 #zsh: a standards-compliant alternate bash-like shell with nice plugins.
-#stow: a tool invoked later in this script for managing bundles of symlinks (shortcuts.)
-# This enables us to link my custom configs to their programs more easily.
+#stow: a tool invoked later in this script for managing bundles of symlinks.
+# This enables us to link my custom configs to their programs and update theme
+# more easily.
 #gucharmap: GUI Character map, useful for working with fonts with icons and
-# non-standard Unicode glyphs.
+# non-standard Unicode icons.
 #mariadb: a MySQL server for MySQL development.
 #mysql-workbench: a (honestly quite bad, someone please suggest a replacement)
 # front end for administering MySQL servers.
@@ -156,7 +157,7 @@ sudo pacman -S                                                                  
 #firefox-developer-edition: web browser with good dev tools.
 #python-pywal: script used for facilitating custom UI theme creation.
 #polybar: the "taskbar." i3bar is nice, but this is nicer.
-#nerd-fonts-terminus: font used in live terminals, patched with emojis and glyphs.
+#nerd-fonts-terminus: font used in live terminals, patched with emojis and icons.
 #ttf-ubuntu-font-family: systemwide default sans-serif fonts. They're pretty.
 
 #Yaourt has almost identical arguments to Pacman.
