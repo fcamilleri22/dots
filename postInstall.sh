@@ -1,8 +1,29 @@
-#!/usr/bin/bash
-#Author: Frank Camilleri
-#This Script is to be invoked right after a fresh install of Manjaro i3
-#Community Edition straight from wget using:
+#!/bin/bash
+
+#Author: Frank Camilleri (http://deployfrank.sh)
+#TL;DR: installs Frank's preferred programs/configs in a single script invokation
+#License: MIT (do w/e you want with this code as long as MIT license copy
+#copy included, and I'm not responsible if it breaks your shit)
+
+#Long Notes:
+#This script is meant to be invoked right after a fresh install of Manjaro i3
+#Community Edition (maintained by Oberon) straight from wget using:
 #bash -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/$BRANCH/postInstall.sh -O -)"
+#If you run this on a dirty install, or a completely different distribution,
+#things WILL break.
+
+#standing larger TODO list (other than what's mentioned inline)
+#
+#Connect link to raw format GitHub page to a deployfrank.sh subdomain in order to
+#make the wget command memorable/write-down-able -- something to the effect of:
+#bash -c "$(wget http://autoconfig.deployfrank.com -O -)"
+#
+#Add polybar config options for screens smaller than 1080p
+#
+#Try a lighter base with fewer "moving parts" -- currently, using Manjaro i3 as
+#a base does a good job of filling in a lot of low level blanks I don't want to
+#think about right now. Later though, I definitely want to consider using the
+#Manjaro Architect ISO, possibly Antergos, even maybe good 'ol ArchLinux
 
 BRANCH="master"
 
@@ -14,6 +35,9 @@ then
 fi
 
 #Update Repos/get nearest repos -- omit ibiblio, is slow.
+#DISTANT TODO: Detect nation or continent -- geoip too slow, and some Canadian
+#mirrors are totally eligible for use inside the US, or continental EU mirrors
+#for Great Britain, etc. Do only if there's demand.
 sudo pacman-mirrors -c United_States
 sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
 
@@ -62,6 +86,7 @@ sudo pacman -S                                                                  
 #Update package caches/Install Packages from Arch User Repository
 yaourt -Syu
 
+#TODO: Intellij Community Edition
 yaourt -S                                                                       \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
@@ -95,10 +120,13 @@ apm install                                                                     
 #xinitrc
 #i3lock?
 
-#Clear out prebaked configs
+#Clear out prebaked configs to prevent stow conflicts
 rm -rf $HOME/.i3
+rm -rf $HOME/.config/polybar
 #Stow configs from repo
-stow --dir=$HOME/Projects/dots/i3 --target=$HOME/
+stow --dir=$HOME/Projects/dots/ --target=$HOME/ i3
+stow --dir=$HOME/Projects/dots/ --target=$HOME/ polybar
+
 
 
 #TODO: ZSH configs
