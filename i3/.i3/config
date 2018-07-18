@@ -5,9 +5,6 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-# set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
-
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 1
 new_float normal
@@ -282,8 +279,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 
-# exec --no-startup-id polybar -c ~/.config/polybar/config example
-
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -296,32 +291,7 @@ set_from_resource $fgAlt color2
 set_from_resource $accAlt color5
 set_from_resource $bgAlt color7
 
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-# bar {
-# 	i3bar_command i3bar
-# 	status_command i3status
-# 	position bottom
-#
-# 	bindsym button4 nop
-# 	bindsym button5 nop
-# 	strip_workspace_numbers yes
-#
-#     colors {
-#         background $bg
-#         statusline $fg
-#         separator  $acc
-#
-# #                           border  backgr. text
-#         focused_workspace   $bg     $acc    $bg
-#         active_workspace    $bg     $bg     $fg
-#         inactive_workspace  $bg     $bg     $fg
-#         binding_mode        $bg     $bg     $fg
-#         urgent_workspace    $bg     $bg     $fg
-#     }
-# }
-
-# hide/unhide i3status bar';;
-#bindsym $mod+d exec dmenu_run -nb "$bg" -nf "$fg" -sb "$acc" -sf "$bg"
+#Invoke Rofi Launcher
 bindsym $mod+d exec rofi -theme /etc/rofi.conf -font Ubuntu\ 12 -show run
 
 # Theme colors
