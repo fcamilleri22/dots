@@ -24,6 +24,8 @@
 #"advanced" linux for the first time, and not professional developers 5+ years
 #into their careers. I figure this is a good spot to slow things down and start
 #to explain a few things to future generations.
+
+#I'm also very likely to move these comments into README.md when i'm semi-done.
 ################################################################################
 
 ################################################################################
