@@ -194,7 +194,6 @@ apm install                                                                     
     minimap                                                                     \
     minimap-pigments                                                            \
     minimap-highlight-selected                                                  \
-    character-table                                                             \
     language-ini                                                                \
 
 #TODO Create "Projects" Directory, and properly clone entire dots repo
