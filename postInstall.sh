@@ -227,13 +227,17 @@ stow --dir=$DOTDIR/ --target=$HOME/ polybar
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 
+#TODO: Configure theme colors (Pywal, polybar, oomox, etc)
+#TODO: wal oomox/rofi templates
+
+#TODO: Alter firefox fonts in ~/.mozilla/firefox/*.default
+#TODO: Firefox dark box fix
+
 #TODO: Config other desktop environment programs.
 #i3lock
 #dunst
 
-#TODO: Alter firefox fonts in ~/.mozilla/firefox/*.default
 
-#TODO: Configure theme colors (Pywal, polybar, oomox, etc)
 #TODO: Fonts
 #Serif: TBD
 #Sans-Serif: Ubuntu 12
