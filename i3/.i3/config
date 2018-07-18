@@ -2,8 +2,9 @@
 # Edited by Frank Camilleri, based off of Oberon's Manjaro i3 config.
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
+################################################################################
+# Aesthetics
+################################################################################
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 1
@@ -12,23 +13,47 @@ new_float normal
 # Hide borders
 hide_edge_borders none
 
+# Font for window titles.
+font pango:Ubuntu 12
+
+################################################################################
+# Window Manipulation Hotkeys
+################################################################################
+
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+set $mod Mod4
+
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Ubuntu 12
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
+
+
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+################################################################################
+# Application Launch Hotkeys
+################################################################################
 
 # start a terminal
 bindsym $mod+Return exec terminal
 
-# kill focused window
-bindsym $mod+Shift+q kill
+################################################################################
+# Workspace Settings
+################################################################################
+
+################################################################################
+# Specific Application settings
+################################################################################
+
+################################################################################
+# Autostart Applications
+################################################################################
 
 
 
@@ -304,9 +329,9 @@ bindsym $mod+d exec rofi -theme /etc/rofi.conf -font Ubuntu\ 12 -show run
 
   client.background       $bg
 
-#############################
-### settings for i3-gaps: ###
-#############################
+################################################################################
+# i3-gaps
+################################################################################
 
 # Set inner/outer gaps
 gaps inner 10
