@@ -140,7 +140,9 @@ sudo pacman -S                                                                  
     polybar                                                                     \
     terraform                                                                   \
     nerd-fonts-terminus                                                         \
-    ttf-ubuntu-font-family
+    ttf-ubuntu-font-family                                                      \
+    jsoncpp                                                                     \
+    libmpdclient
 
 #base-devel: prereq for Yaourt -- essentially a C/C++ toolchain
 #yaourt: a secondary package manager for Arch Linux User Repository (AUR) packages.
@@ -163,6 +165,7 @@ sudo pacman -S                                                                  
 #polybar: the "taskbar." i3bar is nice, but this is nicer.
 #nerd-fonts-terminus: font used in live terminals, patched with emojis and icons.
 #ttf-ubuntu-font-family: systemwide default sans-serif fonts. They're pretty.
+#libmpdclient and jsoncpp are improperly linked prereqs of polybar
 
 #Yaourt has almost identical arguments to Pacman.
 #Syy means "force package database refresh, but do NOT do any updates yet (no 'u')".
@@ -173,14 +176,17 @@ yaourt -Syy
 #TODO: Intellij Community Edition
 yaourt -S                                                                       \
     smartgit                                                                    \
-    oh-my-zsh-git
-    nerd-fonts-fira-code
+    oh-my-zsh-git                                                               \
+    nerd-fonts-fira-code                                                        \
+    oomox
 
 #smartgit: a really good Git GUI. Requires paid license, but can be used for free.
 # Please send these people your money. They deserve it.
 #oh-my-zsh-git: plugin manager for zsh, from github.com/robbyrussell/oh-my-zsh
 #nerd-fonts-fira-code: AKA 'Fura Code' - font used in editors/other code not inside
 # live terminals. Includes emojis and icons, as well as programming ligatures.
+#oomox: a sexual act perfomed amongst consenting Ferengi. Also, a GTK theme generator
+# that works wonderfully with python-pywal
 
 ################################################################################
 #3.) Initial setup for MariaDB, Atom Editor, and NodeJS Globals
@@ -232,6 +238,12 @@ stow --dir=$DOTDIR/ --target=$HOME/ dunst
 
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
+
+################################################################################
+#5.) Finalize. Deal with any loose ends (small fixes, shell change, etc)
+################################################################################
+
+chsh -s /usr/bin/zsh
 
 #TODO: wal post-run script for atom/rofi/dunst
 #TODO: Firefox dark text box fix
