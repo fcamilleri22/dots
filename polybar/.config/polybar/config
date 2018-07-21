@@ -20,7 +20,7 @@
 background = ${xrdb:color0}
 background-alt = ${xrdb:color8}
 
-foreground = ${xrdb:color7}
+foreground = ${xrdb:color15}
 foreground-alt = ${xrdb:color3}
 
 primary = ${xrdb:color3}
