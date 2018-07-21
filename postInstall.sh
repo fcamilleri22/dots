@@ -140,7 +140,7 @@ sudo pacman -S                                                                  
     polybar                                                                     \
     terraform                                                                   \
     nerd-fonts-terminus                                                         \
-    ttf-ubuntu-font-family                                                      \
+    ttf-ubuntu-font-family
 
 #base-devel: prereq for Yaourt -- essentially a C/C++ toolchain
 #yaourt: a secondary package manager for Arch Linux User Repository (AUR) packages.
@@ -173,7 +173,7 @@ yaourt -Syy
 #TODO: Intellij Community Edition
 yaourt -S                                                                       \
     smartgit                                                                    \
-    oh-my-zsh-git                                                               \
+    oh-my-zsh-git
     nerd-fonts-fira-code
 
 #smartgit: a really good Git GUI. Requires paid license, but can be used for free.
@@ -204,7 +204,7 @@ apm install                                                                     
     minimap-pigments                                                            \
     minimap-highlight-selected                                                  \
     language-ini                                                                \
-    language-terraform                                                          \
+    language-terraform
 
 #TODO: nodejs globals, like underscore-cli
 #npm install -g...
@@ -224,19 +224,17 @@ stow --dir=$DOTDIR/ --target=$HOME/ i3
 rm -rf $HOME/.config/polybar
 stow --dir=$DOTDIR/ --target=$HOME/ polybar
 
+rm -rf $HOME/.config/wal
+stow --dir=$DOTDIR/ --target=$HOME/ wal
+
+rm -rf $HOME/.config/dunst
+stow --dir=$DOTDIR/ --target=$HOME/ dunst
+
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 
-#TODO: Configure theme colors (Pywal, polybar, oomox, etc)
-#TODO: wal oomox/rofi templates
-
-#TODO: Alter firefox fonts in ~/.mozilla/firefox/*.default
-#TODO: Firefox dark box fix
-
-#TODO: Config other desktop environment programs.
-#i3lock
-#dunst
-
+#TODO: wal post-run script for atom/rofi/dunst
+#TODO: Firefox dark text box fix
 
 #TODO: Fonts
 #Serif: TBD
