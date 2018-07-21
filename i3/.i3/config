@@ -293,14 +293,14 @@ for_window [class="Xfburn"] floating enable
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
+set $ws1 1:HOME
+set $ws2 2:WEB
+set $ws3 3:CODE
+set $ws4 4:GIT
+set $ws5 5:DB
+set $ws6 6:FILES
+set $ws7 7:MISC
+set $ws8 8:TERM
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
