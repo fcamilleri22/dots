@@ -20,7 +20,7 @@ font pango:Ubuntu 12
 for_window [urgent=latest] focus
 
 #get colors from ~/.Xresources
-set_from_resource $fg color7
+set_from_resource $fg color15
 set_from_resource $acc color1
 set_from_resource $bg color0
 
