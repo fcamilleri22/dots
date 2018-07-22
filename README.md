@@ -19,8 +19,11 @@
 
 1. Do a fresh install of the **Manjaro i3 Community Edition**.
 
-2. When the install is finished and you've rebooted into the new install, run as a **non-root user**:
-`sh -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh -O -)"`. This command downloads and installs everything needed.
+2. When the install is finished and you've rebooted into the new install, run as a **non-root user**:   
+
+   `sh -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh -O -)"`
+   
+   This command downloads and installs everything needed.
 
 3. When the script is finished, reboot one more time.
 
