@@ -17,7 +17,7 @@
 
 6. **Each development environment shall be treated like cattle, not like a pet. They must be destructible at any time, for any reason, intentional or otherwise.** Any configuration change to my development environment I deem worthwhile shall be committed and backed up in this repository. I should be able to get a new development environment ready to work again, fully functional and configured should something happen to the machine I'm working on with zero heartbreak. This is possible because all my useful work should be committed, all the configured options of my operating system are committed, and its deployment is automated.
 
-## Alright Frank, I read your silly manifesto, and I want to code in your environment. How?
+## Alright, Frank, I read your silly manifesto, and I want to code in your environment. How?
 
 1. Do a fresh install of the **Manjaro i3 Community Edition**.
 
