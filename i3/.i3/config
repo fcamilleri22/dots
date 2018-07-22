@@ -298,8 +298,8 @@ set $ws2 2:WEB
 set $ws3 3:CODE
 set $ws4 4:GIT
 set $ws5 5:DB
-set $ws6 6:FILES
-set $ws7 7:MISC
+set $ws6 6:MISC
+set $ws7 7:FILES
 set $ws8 8:TERM
 
 # switch to workspace
