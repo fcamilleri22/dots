@@ -51,8 +51,8 @@ padding-left = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Ubuntu:size=11:antialias=true"
-font-1 = "Terminus:size=6"
+font-0 = "Ubuntu:size=12:antialias=true"
+font-1 = "Terminus:size=8"
 
 modules-left = i3
 modules-center =
@@ -197,7 +197,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s25
+interface = enp0s3
 interval = 3.0
 format-connected-prefix-font = 2
 format-connected-prefix = "WIRED IP: "
