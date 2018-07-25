@@ -49,6 +49,15 @@ This documentation is **NOT** targeted towards people with lots of experience wi
 
 4. **GET SOMETHING DONE!**
 
+## Known Issues
+- Installer is USA-centric. Edit the `sudo pacman-mirrors -c ...` line if you're not in North America.
+- Polybar's network monitors can't automatically tell the correct name of the primary network interface, whether wired or wireless.
+- Initial font configuration is still not automatic, and some fonts are not yet consistent.
+- There's no cheat sheet for controls/custom functions.
+- Theming is not yet universal (i.e. you still have to change Atom/X/GTK themes separately.)
+- These docs only really cover the installation process. **There is no user manual yet.**
+- Did I mention that this is still in active early development with hot commits still being made onto master?
+
 # **WARNING: currently, the installation process DELETES certain default configuration files, as it was written with *FRESH* installs in mind.**
 
 ### But Frank, I don't want to permanently install this yet -- I just want to try it out!
@@ -114,12 +123,3 @@ Other potential attack vectors include random script copypasta from the internet
 Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
 
 **You definitely CAN** play more graphically intensive games with this setup with some additional work, but **I'm not writing anything here to facilitate that.**
-
-## Other Known Issues
-- Installer is USA-centric. Edit the `sudo pacman-mirrors -c ...` line if you're not in North America.
-- Polybar's network monitors can't automatically tell the correct name of the primary network interface, whether wired or wireless.
-- Initial font configuration is still not automatic, and some fonts are not yet consistent.
-- There's no cheat sheet for controls/custom functions.
-- Theming is not yet universal (i.e. you still have to change Atom/X/GTK themes separately.)
-- These docs only really cover the installation process. **There is no user manual yet.**
-- **There aren't even screenshots yet!**
