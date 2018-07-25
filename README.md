@@ -44,7 +44,7 @@ This documentation is **NOT** targeted towards people with lots of experience wi
 
 4. **GET SOMETHING DONE!**
 
-## **WARNING: currently, the installation process DELETES certain default configuration files, as it was written with *FRESH* installs in mind.**
+# **WARNING: currently, the installation process DELETES certain default configuration files, as it was written with *FRESH* installs in mind.**
 
 ## But Frank, I don't want to permanently install this yet -- I just want to try it out!
 **Coming Soon™**: I will be writing functionality such that your old configurations will be preserved and revertible in a single command. For now, you can just clone this repository, and copy each included config file manually.
