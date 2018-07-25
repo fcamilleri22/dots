@@ -4,7 +4,12 @@
 ## What is this?
 `dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
 
-## Why are these docs so damn VERBOSE? I hate reading! (aka, the Introduction.)
+## Dirty
+![Dirty](dirty_dots.png)
+## Clean
+![Clean](clean_dots.png)
+
+## Why are these docs so damn VERBOSE? I hate reading!
 I wrote this documentation with **casual** browsers of reddit.com/r/unixporn in mind, who (at least from my perspective/in my opinion) seem to be high-school/early college aged people studying something technical (not necessarily CS, but mostly CS) OR longtime programmers who've primarily used Windows/Mac/Ubuntu/Fedora/RHEL/CentOS through their career, just started getting their feet wet with rolling their own desktop, and would appreciate reading why I made certain decisions and not just how this works.
 
 My own entry into the greater Linux/software engineering world started off more than 12 years ago (my high school years) with writing similar post install scripts for Ubuntu Minimal and Debian in the hope of having a unique/better/safer/faster-than-Windows gaming/media center setup. An entire career in software/computer engineering kinda sprouted out of that. Ain't that neat?
@@ -117,3 +122,4 @@ Aside from a few small Linux native Steam games I keep installed on my laptop fo
 - There's no cheat sheet for controls/custom functions.
 - Theming is not yet universal (i.e. you still have to change Atom/X/GTK themes separately.)
 - These docs only really cover the installation process. **There is no user manual yet.**
+- **There aren't even screenshots yet!**
