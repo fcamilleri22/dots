@@ -83,6 +83,7 @@ sudo pacman -S                                                                  
     firefox-developer-edition                                                   \
     python-pywal                                                                \
     polybar                                                                     \
+    rofi                                                                        \
     terraform                                                                   \
     nerd-fonts-terminus                                                         \
     ttf-ubuntu-font-family                                                      \
@@ -147,6 +148,9 @@ stow --dir=$DOTDIR/ --target=$HOME/ wal
 
 rm -rf $HOME/.config/dunst
 stow --dir=$DOTDIR/ --target=$HOME/ dunst
+
+rm -rf $HOME/.config/rofi
+stow --dir=$DOTDIR/ --target=$HOME/ rofi
 
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
