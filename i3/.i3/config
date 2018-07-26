@@ -208,7 +208,7 @@ bindsym $mod+Shift+F1 exec gksu pcmanfm
 #text editor
 bindsym $mod+F2 exec atom
 #Rofi Launcher
-bindsym $mod+d exec rofi -theme /etc/rofi.conf -font Ubuntu\ 12 -show run
+bindsym $mod+d exec rofi -theme ~/.config/rofi/rofi.rasi -font Ubuntu\ 12 -show run
 
 # OTHER -- TODO: Sort out.
 # launch categorized menu
