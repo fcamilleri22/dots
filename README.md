@@ -95,6 +95,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `python-pywal`: script used for facilitating custom UI theme creation.
 - `polybar`: the "taskbar" that occupies the top of the screen and supplies useful information.
 - `rofi`: a minimalist application launcher, similar to dmenu.
+- `terraform`: an infrastructure-as-code tool compatible with all major cloud services providers (AWS, Digital Ocean, etc.)
 - `nerd-fonts-terminus`: font I use in live terminals, patched with emojis and icons.
 - `ttf-ubuntu-font-family`: systemwide default sans-serif fonts. They're pretty.
 - `libmpdclient` and `jsoncpp` are improperly linked prerequisites of polybar. They're required for some of the plugins included in `polybar` that I'm not using here, and not listed as prerequisites for `polybar`, but `polybar` will not launch properly without them regardless.
