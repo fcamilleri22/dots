@@ -117,3 +117,6 @@ With all that being said, if you still want to game with this, look into:
 - [Lutris](https://lutris.net/): A modern game manager/installer with compatibility scripts.
 
 Don't ask me for help with the above - I haven't tried to run games in Linux since 2010.
+
+## My machine has 3 different network interfaces and 3 monitors - why doesn't this work/why does this look weird?
+Because this isn't for you, and isn't for that. As stated above, these are my configuration files for me to get my work done. I do not work on multi-monitor setups, and thus won't dedicate time to fixing any issues there unless I start working on multi-monitor setups, and the machines I work with have, at most, a wired and wireless interface, and no more than that. If I am working on a machine with more than that, it's a server and I'm not running this on servers. If you want that functionality, feel free to contribute or fork.
