@@ -119,7 +119,7 @@ In recent memory, however, there have been [cases of deliberate malicious code i
 
 Other potential attack vectors I'm aware of while using this include script copypasta from the internet - please read and understand any code you paste and run in your terminal - and from other non-centrally maintained package managers with open publishing standards such as `npm`. Ultimately, it is up to the user to **BE VIGILANT!**
 
-## **HEY!** In the introduction to this obscenely long doc, you mentioned mentioned the word "GAMING?" How do I game with this?
+## **HEY!** In the introduction to this obscenely long doc, you mentioned the word "GAMING?" How do I game with this?
 Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
 
 **You definitely CAN** play more graphically intensive games with this setup with some additional work, but **I'm not writing anything here to facilitate that.**
