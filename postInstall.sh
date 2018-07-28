@@ -161,6 +161,7 @@ stow --dir=$DOTDIR/ --target=$HOME/ shell
 
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
+
 echo 'user_pref("widget.content.gtk-theme-override", "Adwaita:light");'         \
     >>$HOME/.mozilla/firefox/$FFPREFSDIR/prefs.js
 
