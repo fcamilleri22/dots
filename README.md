@@ -9,14 +9,9 @@
 ## Clean
 ![Clean](clean_dots.png)
 
-## Why are these docs so damn VERBOSE? I hate reading!
-I wrote this documentation with **casual** browsers of Linux interface forums such as reddit.com/r/unixporn in mind, who (at least from my perspective/in my opinion) seem to be high-school/early college aged people studying something technical (not necessarily CS, but mostly CS) OR longtime programmers who've primarily used Windows/Mac/Ubuntu/Fedora/RHEL/CentOS through their career, just started getting their feet wet with rolling their own desktop, and would appreciate reading why I made certain decisions and not just how this works.
-
-My own entry into the greater Linux/software engineering world started off more than 12 years ago (my high school years) with writing similar post install scripts for Ubuntu Minimal and Debian in the hope of having a unique/better/safer/faster-than-Windows gaming/media center setup. An entire career in software/computer engineering kinda sprouted out of that. Ain't that neat?
-
-This documentation is **NOT** targeted towards people with lots of experience with Arch Linux and/or rolling their own Linux Desktop, and will probably flow like molasses to that crowd. **Sorry.**
-
 ## Design Goals:
+**Disclaimer: These are GOALS, not FEATURES. Hopefully soon, they will all be features.**
+
 1. **Keep all internals as simple as possible**, where simple is defined by the Arch Linux principle "without unnecessary additions or modifications." Only the minimal number of packages needed to get my work done should be included in these scripts. Anything else can potentially introduce external variables that I may not be aware of during my work that may cause bugs and/or waste time.
 
 2. **All open windows should either maximize all available space or monopolize all available attention**. To clarify: open programs should either tile to fill all available workspace, or, in the case of small windows such as dialogs, wizards, preferences, or nag screens, float above everything else and grab all your available attention in an urgent manner. No small thing should be left unattended without being resolved for too long, as this contributes to mental clutter, which may cause bugs and/or waste time.
@@ -106,10 +101,8 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
 - `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
 
-## **HEY!** In the introduction to this obscenely long doc, you mentioned the word "GAMING?" How do I game with this?
+## What about Gaming?
 Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
-
-**You definitely CAN** play more graphically intensive games with this setup with some additional work, but **I'm not writing anything here to facilitate that.**
 
 With all that being said, if you still want to game with this, look into:
 - [Wine](https://www.winehq.org/): A Windows compatibility layer for Linux.
