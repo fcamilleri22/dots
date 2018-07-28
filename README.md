@@ -107,18 +107,6 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
 - `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
 
-
-## On Security
-I'm not a security engineer, a penetration tester, or a computer cracker. I'm putting faith in the people contributing to the Linux Kernel, Arch Linux, and Manjaro as far as the security of the base system goes. I am also assuming that anything included in the installation list is also secure.
-
-As far as the security of the parts I am responsible for, namely, this installation process, there aren't many moving parts to it, thus not a lot of surface area for attack. We ensure that we are not running the entire install script as root so each individual part can elevate permissions ONLY when required. The largest possible vector in this process is when we install packages of the AUR. AUR package build scripts, aka PKGBUILDs, are user submitted and maintained, meaning anyone can contribute. Because of this, there is always a chance of an unknown party adding malicious code to a PKGBUILD -- most times something like this has happened, however, it has been purely accidental (yet still destructive.)
-
-e.g.: a PKGBUILD ends with a cleanup script to delete files created in a normally sensitive area, such as /tmp/some_package_name. What if the maintainer accidentally typos in a space after one of the slashes and ends up invoking `rm -rf / tmp/some_package_name` instead? Can you say *"Oooof?"*
-
-In recent memory, however, there have been [cases of deliberate malicious code inside PKGBUILDS](https://www.bleepingcomputer.com/news/security/malware-found-in-arch-linux-aur-package-repository/). To defend against something more sophisticated like this, I've made sure to only grab just four things from the AUR. If you're super paranoid about this vector, you may read the contents of each PKGBUILD at the [AUR website](aur.archlinux.org) or during prompts that pop up during the installation process. Look especially for lines that invoke programs such as `curl` or `wget`, as well as lists of URLs that may exist in the PKGBUILD's `source` field. Most times, these are fine, as these scripts need some mechanism for fetching their code from wherever said code actually lives.
-
-Other potential attack vectors I'm aware of while using this include script copypasta from the internet - please read and understand any code you paste and run in your terminal - and from other non-centrally maintained package managers with open publishing standards such as `npm`. Ultimately, it is up to the user to **BE VIGILANT!**
-
 ## **HEY!** In the introduction to this obscenely long doc, you mentioned the word "GAMING?" How do I game with this?
 Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
 
