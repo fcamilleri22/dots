@@ -2,26 +2,24 @@
 ################################################################################
 #Author: Frank Camilleri (http://deployfrank.sh)
 #TL;DR: installs Frank's preferred programs/configs in a single script invokation
-
 #License: MIT (do w/e you want with this code as long as MIT license copy
 #included, and I'm not responsible if this code breaks your stuff)
 ################################################################################
 #This script is meant to be invoked right after a fresh install of Manjaro i3
 #Community Edition (maintained by Oberon) straight from wget using:
 #bash -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/$BRANCH/postInstall.sh -O -)"
-#If you run this on a dirty install, or a completely different distribution, things WILL break.
+#If you run this on a dirty install, or a completely different distribution,\
+#things WILL break. You've been warned...
 ################################################################################
 
 ################################################################################
-#1.) Ensure we're not running this as root, configure pacman mirrors for optimal
-#download speeds, and edit (not replace) other system-wide config files in /etc/
-#such as GNU Nano and the Pacman/Yaourt package managers.
+#1.) Ensure we're not running this as root, configure initial system level stuff
+# (pacman, nano, etc.)
 ################################################################################
 
 BRANCH="master" #what git branch of 'dots' to fetch other files from
 PROJDIR="$HOME/Projects" #Where you want your "projects" directory to live
 DOTDIR="$PROJDIR/dots" #Where you want to put the rest of the 'dots' git repo.
-
 
 #Determine if root or 'nobody'. If either, exit script.
 if [ $UID -eq 0 ] || [ $UID -eq 99 ]
@@ -50,19 +48,12 @@ sudo sed -i '/set tabsize 4/s/^#//'                             /etc/nanorc
 
 sudo sed -i '/include \"\/usr\/share\/nano\/\*.nanorc\"/s/^#//' /etc/nanorc
 
-
-
 ################################################################################
-#2.) Install required software from Official repositories and User repository.
+#2.) Install Software from repositories
 ################################################################################
 
-#S: use pacman in synchronize (install/update) mode
-#y: refresh remote pacman package database.
-#second y: force package database refresh because we updated the mirrorlist a
-#few lines ago
-#u: upgrade all out-of-date installed packages maintained in the Manjaro/Arch repos.
-#In summary: tell pacman to respond to our config changes, and get the base
-#system fully up to date before we start adding things on.
+
+#Update mirrors + system
 sudo pacman -Syyu
 
 #Install from official repositories...
@@ -90,9 +81,6 @@ sudo pacman -S                                                                  
     jsoncpp                                                                     \
     libmpdclient
 
-#Yaourt has almost identical arguments to Pacman.
-#Syy means "force package database refresh, but do NOT do any updates yet (no 'u')".
-#Also, DO NOT use yaourt as root -- let the AURs included PKGBUILDs handle perms.
 yaourt -Syy
 
 #Then, install from the User Repository...
@@ -102,21 +90,7 @@ yaourt -S                                                                       
     nerd-fonts-fira-code                                                        \
     oomox
 
-
-################################################################################
-#3.) Initial setup for MariaDB, Atom Editor, and NodeJS Globals
-################################################################################
-
-#Set up MariaDB (see the ArchWiki for more info)
-sudo mysql_install_db                                                           \
-    --user=mysql                                                                \
-    --basedir=/usr                                                              \
-    --datadir=/var/lib/mysql
-
-sudo systemctl start mysqld
-mysql_secure_installation
-
-#Atom plugins
+#Then, packages for the atom editor
 apm install                                                                     \
     gruvbox-plus-syntax                                                         \
     pigments                                                                    \
@@ -126,11 +100,11 @@ apm install                                                                     
     language-ini                                                                \
     language-terraform
 
+#Then, npm packages
 #npm install -g...
 
 ################################################################################
-#4.) Create Projects directory, clone full 'dots' repository inside of it,
-#and replace default user configurations with symlinks to our configs via stow.
+#3.) Create Projects Directory, clone dotfile repository, replace default confs
 ################################################################################
 
 mkdir $PROJDIR
@@ -156,8 +130,17 @@ rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 
 ################################################################################
-#5.) Finalize. Deal with any loose ends.
+#4.) Initialize software and configure remaining loose ends
 ################################################################################
+
+#Set up MariaDB (see the ArchWiki for more info)
+sudo mysql_install_db                                                           \
+    --user=mysql                                                                \
+    --basedir=/usr                                                              \
+    --datadir=/var/lib/mysql
+
+sudo systemctl start mysqld
+mysql_secure_installation
 
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
