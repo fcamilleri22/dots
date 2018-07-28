@@ -110,6 +110,10 @@ apm install                                                                     
 mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
+#Stow scripts dir, and chmod them
+stow --dir=$DOTDIR/ --target=$HOME/ scripts
+chmod +x $HOME/Scripts/*
+
 #Clear out prebaked configs to prevent stow conflicts, then stow repo config.
 rm -rf $HOME/.i3
 stow --dir=$DOTDIR/ --target=$HOME/ i3
