@@ -156,9 +156,15 @@ rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 
 ################################################################################
-#5.) Finalize. Deal with any loose ends (small fixes, shell change, etc)
+#5.) Finalize. Deal with any loose ends.
 ################################################################################
 
+#Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
+FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
+echo 'user_pref("widget.content.gtk-theme-override", "Adwaita:light");'         \
+    >>$HOME/.mozilla/firefox/$FFPREFSDIR/prefs.js
+
+#Change Shell
 chsh -s /usr/bin/zsh
 
 echo "All done!"

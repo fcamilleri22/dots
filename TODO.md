@@ -16,8 +16,6 @@
 
 - pacman-mirrors: Make not US-centric, add continent detection, and add banlist for known slow mirrors like ibiblio.
 
-- Firefox dark text box fix
-
 - Configure Fonts automatically
 
 - Java/Scala/Kotlin Dev stuff
