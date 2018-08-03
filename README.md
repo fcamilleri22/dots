@@ -50,12 +50,13 @@ This doesn't work yet, (duh, it's **Coming Soon™**), but once I finish it, wil
 - Generally speaking, this is **unfinished.**
 - Installer is USA-centric. Edit the `sudo pacman-mirrors -c ...` line if you're not in North America.
 - Polybar's network monitors can't automatically tell the correct name of the primary network interface, whether wired or wireless.
-- There's a bug in a font renderer that the Atom Editor depends on that causes visual corruptions that needs a workaround.
+- There's an issue in Atom where windows above about 4mil pixels (larger than 1440p) will have unrendered patches.
+  - Temp. Workaround: use multiple Atom windows.
 - Initial font configuration is still not automatic, and some fonts are not yet consistent.
 - There's no cheat sheet for controls/custom functions.
 - Theming is not yet universal (i.e. you still have to change Atom/X/GTK themes separately.)
 - These docs only really cover the installation process. **There is no user manual yet.**
-- Did I mention that this is still in active early development with hot commits still being made onto master?
+- Did I mention that this is still in active early development with hot commits still being made onto master? If you're not me, I wouldn't use this (yet.)
 
 ## How does that magical single command installation work?
 After installing the **Manjaro i3 Community Edition**, which provides all our base prerequisites, we run our "main" script, **postInstall.sh** as a **non-root** user by downloading it straight from GitHub's raw files (`wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh`) as a single file (`-O`) dumped right to the standard output (`-`), which is then immediately read and invoked by your shell (`sh -c "$(wget...)"`,) where the `"$(...)""` indicates a command substitution. In this case, the command being substituted in is our entire script! Ain't that dandy? This script runs in 4 phases:
