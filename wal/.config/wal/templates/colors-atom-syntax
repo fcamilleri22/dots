@@ -1,0 +1,16 @@
+@very-light-gray: #c5c8c6;
+@light-gray: #969896;
+@gray: #373b41;
+@dark-gray: #282a2e;
+@very-dark-gray: #1d1f21;
+
+@red: {color1};
+@green: {color2};
+@light-orange: {color3};
+@orange: {color11};
+@blue: {color4};
+@purple: {color5};
+@cyan: {color6};
+
+@background: {color0};
+@foreground: {color15};
