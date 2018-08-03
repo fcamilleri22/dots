@@ -1,5 +1,5 @@
 # Frank's Personal Dotfiles
-**warning**: this is currently in **early development** with unstable commits being added to master until the end of July 2018. Use at your own risk. With that being said, this documentation is also heavily in flux, so please check back often!
+**warning**: this is currently in **early development** with unstable commits being added to master until the end of August 2018. Use at your own risk. With that being said, this documentation is also heavily in flux, so please check back often!
 
 ## What is this?
 `dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
@@ -93,6 +93,8 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `nerd-fonts-terminus`: font I use in live terminals, patched with emojis and icons.
 - `ttf-ubuntu-font-family`: systemwide default sans-serif fonts. They're pretty.
 - `libmpdclient` and `jsoncpp` are prerequisites of certain Polybar plugins.
+
+
 
 #### From the Arch User Repository (AUR):
 
