@@ -104,6 +104,8 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
 - `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
 
+**Coming Soon**: additions for Kotlin/Scala development. I want to get the Theming/JS/Node things done before I start thinking about autotheming Intellij. I love my JVM languages, but I hate Java - its typing is TOO strict, and I don't want to write 20 different wrapper interfaces to reuse a small chunk of code.
+
 ## What about Gaming?
 Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
 
@@ -115,4 +117,4 @@ With all that being said, if you still want to game with this, look into:
 Don't ask me for help with the above - I haven't tried to run games in Linux since 2010.
 
 ## My machine has 3 different network interfaces and 3 monitors - why doesn't this work/why does this look weird?
-Because this isn't for you, and isn't for that. As stated above, these are my configuration files for me to get my work done. I do not work on multi-monitor setups, and thus won't dedicate time to fixing any issues there unless I start working on multi-monitor setups, and the machines I work with have, at most, a wired and wireless interface, and no more than that. If I am working on a machine with more than that, it's a server and I'm not running this on servers. If you want that functionality, feel free to contribute or fork.
+Because this isn't for that. As stated above, these are my configuration files for me to get my work done. I do not work on multi-monitor setups, and thus won't dedicate time to fixing any issues there unless I start working on multi-monitor setups, and the machines I work with have, at most, a wired and wireless interface, and no more than that. If I am working on a machine with more than that, it's a server and I'm not running this on servers. If you want that functionality, feel free to contribute or fork.
