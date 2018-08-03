@@ -8,5 +8,8 @@
 ################################################################################
 
 #Atom Theme
+mv \
+    $HOME/.cache/wal/colors-atom-syntax \
+    $HOME/.atom/packages/frank-syntax/styles/colors.less
 
-#Dunst Theme
+#Dunst (notification daemon) Theme
