@@ -23,13 +23,13 @@
     background-color: @background;
     background: {background};
     foreground: {foreground};
-    border-color: @background;
+    border-color: {color3};
     spacing: 2;
 }}
 
 #window {{
     background-color: @background;
-    border: 0;
+    border: 4;
     padding: 2.5ch;
 }}
 
