@@ -1,0 +1,33 @@
+!! Let pywal govern colors
+#include ".cache/wal/colors.Xresources"
+
+!! XFT (XFREETYPE)
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+!! URxvt
+
+URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+
+URxvt.depth:                      32
+URxvt*scrollBar:                  false
+URxvt*cursorBlink:                true
+URxvt*saveLines:                  5000
+URxvt*url-launcher:               firefox-developer-edition
+
+URxvt.secondaryScreen:            true
+URxvt.secondaryScroll:            false
+URxvt.secondaryWheel:             true
+
+URxvt*skipBuiltinGlyphs:          true
+
+URxvt*jumpScroll:                 true
+URxvt*skipScroll:                 false
+
+!! ROFI
