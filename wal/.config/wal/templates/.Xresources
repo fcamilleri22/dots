@@ -1,3 +1,5 @@
+!! XFT (XFREETYPE)
+
 Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
@@ -6,51 +8,13 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+!! XTERM
+
 XTerm*background: #2b2b2b
 XTerm*foreground: #e7e7e7
 XTerm*pointerColor: #16A085
 XTerm*faceName: Fixed
 XTerm*faceSize: 11
-
-*background:                      #272827
-*foreground:                      #657b83
-*fading:                          15
-*fadeColor:                       black
-*cursorColor:                     #16A085
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
-
-!! black dark/light
-*color0:                          #232423
-*color8:                          #282928
-
-!! red dark/light
-*color1:                          #BA2922
-*color9:                          #CC372C
-
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
-
-!! yellow dark/light
-*color3:                          #4C4F4D
-*color11:                         #4E524F
-
-!! blue dark/light
-*color4:                          #16A085
-*color12:                         #13BF9D
-
-!! magenta dark/light
-*color5:                          #43746A
-*color13:                         #487D72
-
-!! cyan dark/light
-*color6:                          #00CCCC
-*color14:                         #00D1D1
-
-!! white dark/light
-*color7:                          #E0E0E0
-*color15:                         #E8E8E8
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
@@ -60,6 +24,8 @@ XTerm*foreground:                 #fdf6e3
 XTerm*reverseVideo:               on
 XTerm*faceName:                   Terminus:size=11:antialias=true
 XTerm*selectToClipboard:          true
+
+!! URxvt
 
 URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 
@@ -227,3 +193,49 @@ URxvt*saveLines:                  5000
 ! -xos4-terminus-bold-r-normal--24-240-72-72-c-120-iso10646-1
 ! -xos4-terminus-bold-r-normal--28-280-72-72-c-140-iso10646-1
 ! -xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1
+
+!! ROFI
+
+
+
+!! WILDCARDS
+
+*background:                      #272827
+*foreground:                      #657b83
+*fading:                          15
+*fadeColor:                       black
+*cursorColor:                     #16A085
+*pointerColorBackground:          #2B2C2B
+*pointerColorForeground:          #16A085
+
+!! black dark/light
+*color0:                          #232423
+*color8:                          #282928
+
+!! red dark/light
+*color1:                          #BA2922
+*color9:                          #CC372C
+
+!! green dark/light
+*color2:                          #7E807E
+*color10:                         #8D8F8D
+
+!! yellow dark/light
+*color3:                          #4C4F4D
+*color11:                         #4E524F
+
+!! blue dark/light
+*color4:                          #16A085
+*color12:                         #13BF9D
+
+!! magenta dark/light
+*color5:                          #43746A
+*color13:                         #487D72
+
+!! cyan dark/light
+*color6:                          #00CCCC
+*color14:                         #00D1D1
+
+!! white dark/light
+*color7:                          #E0E0E0
+*color15:                         #E8E8E8
