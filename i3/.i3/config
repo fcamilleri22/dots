@@ -207,7 +207,7 @@ mode "$mode_system" {
 #terminal
 bindsym $mod+Return exec terminal
 #web browser
-bindsym $mod+Shift+Return exec firefox
+bindsym $mod+Shift+Return exec firefox-developer-edition
 #file manager
 bindsym $mod+F1 exec pcmanfm
 #root file manager
@@ -215,7 +215,10 @@ bindsym $mod+Shift+F1 exec gksu pcmanfm
 #text editor
 bindsym $mod+F2 exec atom
 #Rofi Launcher
-bindsym $mod+d exec rofi -theme ~/.config/rofi/rofi.rasi -font Ubuntu\ 12 -show run
+bindsym $mod+d exec rofi \
+    -theme ~/.cache/wal/colors-rofi \
+    -font Ubuntu\ 12 \
+    -show run
 
 # OTHER -- TODO: Sort out.
 # launch categorized menu
@@ -230,7 +233,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id wal --theme base16-gruvbox-hard
+exec --no-startup-id wal -R
 exec --no-startup-id ~/Scripts/rotateWallpapers.sh &
 exec --no-startup-id sleep 1; compton -b
 exec --no-startup-id polybar main
