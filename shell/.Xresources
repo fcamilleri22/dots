@@ -31,3 +31,5 @@ URxvt*jumpScroll:                 true
 URxvt*skipScroll:                 false
 
 !! ROFI
+
+rofi.font:                        Ubuntu 12
