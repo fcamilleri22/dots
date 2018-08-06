@@ -21,5 +21,8 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+#Configure Less so we can scroll
+export LESS=-R
+
 cat ~/.cache/wal/sequences
 source $ZSH/oh-my-zsh.sh
