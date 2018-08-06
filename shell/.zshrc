@@ -1,4 +1,9 @@
-#ZSH configuration
+################################################################################
+#Author: Frank Camilleri (http://deployfrank.sh)
+#TL;DR: dot-zsh file. User defined SHELL CONFIGURATIONS go here. NOT SHELL VARIABLES.
+#License: MIT (do w/e you want with this code as long as MIT license copy
+#included, and I'm not responsible if this code breaks your stuff)
+################################################################################
 ZSH=/usr/share/oh-my-zsh/
 ZSH_THEME="xiong-chiamiov-plus"
 
