@@ -6,8 +6,8 @@
 
 @red: {color1};
 @green: {color2};
-@light-orange: {color3};
-@orange: {color11};
+@light-orange: {color8};
+@orange: {color3};
 @blue: {color4};
 @purple: {color5};
 @cyan: {color6};
