@@ -7,11 +7,11 @@
 ################################################################################
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
+new_window pixel 4
+new_float pixel 4
 
 # Hide borders
-hide_edge_borders none
+#hide_edge_borders none
 
 # Font for window titles.
 font pango:Ubuntu 12
@@ -20,21 +20,28 @@ font pango:Ubuntu 12
 for_window [urgent=latest] focus
 
 #get colors from ~/.Xresources
+#foreground
 set_from_resource $fg color15
-set_from_resource $acc color1
+
+#background
 set_from_resource $bg color0
 
-set_from_resource $fgAlt color2
-set_from_resource $accAlt color5
-set_from_resource $bgAlt color7
+#urgent
+set_from_resource $urg color1
+
+#accent
+set_from_resource $acc color8
+
+#selected
+set_from_resource $sel color3
 
 # Theme colors
 # class                   border  backgr. text    indic.  child_border
-  client.focused          $bg     $bg     $fg     $acc     $bg
-  client.focused_inactive $bg     $bg     $fg     $acc     $bg
-  client.unfocused        $bg     $bg     $fg     $acc     $bg
-  client.urgent           $acc    $bg     $fg     $acc     $bg
-  client.placeholder      $bg     $bg     $fg     $acc     $bg
+  client.focused          $acc     $bg     $fg     $urg     $sel
+  client.focused_inactive $acc     $bg     $fg     $urg     $acc
+  client.unfocused        $acc     $bg     $fg     $urg     $acc
+  client.urgent           $acc     $bg     $urg    $urg     $acc
+  client.placeholder      $acc     $bg     $fg     $urg     $acc
 
   client.background       $bg
 
