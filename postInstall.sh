@@ -84,11 +84,14 @@ sudo pacman -S                                                                  
 yaourt -Syy
 
 #Then, install from the User Repository...
+#NOTE: rxvt-unicode-better-blah-blah causes a conflict with preinstalled
+# rxvt-unicode. 
 yaourt -S                                                                       \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
     nerd-fonts-fira-code                                                        \
-    oomox
+    oomox                                                                       \
+    rxvt-unicode-better-wheel-scrolling-unicode3
 
 #Then, packages for the atom editor
 apm install                                                                     \

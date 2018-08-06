@@ -103,6 +103,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `oh-my-zsh-git`: plugin manager for zsh, from github.com/robbyrussell/oh-my-zsh.
 - `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
 - `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
+- 'rxvt-unicode-better-wheel-scrolling-unicode3': a patched version of the popular terminal "urxvt" that allows for glyphs and mouse scrolling.
 
 **Coming Soon**: additions for Kotlin/Scala development. I want to get the Theming/JS/Node things done before I start thinking about autotheming Intellij. I love my JVM languages, but I hate Java - its typing is TOO strict, and I don't want to write 20 different wrapper interfaces to reuse a small chunk of code.
 
