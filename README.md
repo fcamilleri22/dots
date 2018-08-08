@@ -54,6 +54,7 @@ This doesn't work yet, (duh, it's **Coming Soon™**), but once I finish it, wil
   - Temp. Workaround: use multiple Atom windows.
 - Initial font configuration is still not automatic, and some fonts are not yet consistent.
 - There's no cheat sheet for controls/custom functions.
+- The volume slider does not mute sound; it simply sets it really really really really low.
 - Theming is not yet universal (i.e. you still have to change Atom/X/GTK themes separately.)
 - These docs only really cover the installation process. **There is no user manual yet.**
 - Did I mention that this is still in active early development with hot commits still being made onto master? If you're not me, I wouldn't use this (yet.)
