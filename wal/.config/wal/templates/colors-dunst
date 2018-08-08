@@ -57,7 +57,7 @@
 
 
     # The geometry of the window:
-    #   [{width}]x{height}[+/-{x}+/-{y}]
+    #   [{{width}}]x{{height}}[+/-{{x}}+/-{{y}}]
     # The geometry of the message window.
     # The height is measured in number of notifications everything else
     # in pixels.  If the width is omitted but the height is given
@@ -134,7 +134,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = {color8}
+    separator_color = "{color8}"
 
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
