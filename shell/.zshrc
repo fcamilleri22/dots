@@ -21,7 +21,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-#Configure Less so we can scroll
+#Configure Less (the file reader) so we can scroll manpages with the mouse.
 export LESS=-R
 
 cat ~/.cache/wal/sequences
