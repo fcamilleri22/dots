@@ -14,7 +14,7 @@
 
 ################################################################################
 #1.) Ensure we're not running this as root, configure initial system level stuff
-# (pacman, nano, etc.)
+# (pacman, nano, etc.) and user .xinitrc
 ################################################################################
 
 BRANCH="master" #what git branch of 'dots' to fetch other files from
@@ -47,6 +47,9 @@ sudo sed -i '/set tabsize 8/s/8$/4/'                            /etc/nanorc
 sudo sed -i '/set tabsize 4/s/^#//'                             /etc/nanorc
 
 sudo sed -i '/include \"\/usr\/share\/nano\/\*.nanorc\"/s/^#//' /etc/nanorc
+
+#Edit xinitrc so that .Xresources confs can be split into multiple files
+sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 
 ################################################################################
 #2.) Install Software from repositories
@@ -85,7 +88,7 @@ yaourt -Syy
 
 #Then, install from the User Repository...
 #NOTE: rxvt-unicode-better-blah-blah causes a conflict with preinstalled
-# rxvt-unicode. 
+# rxvt-unicode.
 yaourt -S                                                                       \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
