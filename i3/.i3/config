@@ -1,7 +1,6 @@
 # i3 config file (v4)
 # Edited by Frank Camilleri, based off of Oberon's Manjaro i3 config.
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 ################################################################################
 # Look/Feel
 ################################################################################
@@ -232,8 +231,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
+exec --no-startup-id wal -Renst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id wal -R
 exec --no-startup-id ~/Scripts/rotateWallpapers.sh &
 exec --no-startup-id sleep 1; compton -b
 exec --no-startup-id polybar main
@@ -372,7 +371,7 @@ bindsym $mod+Shift+g mode "$mode_gaps"
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
-        bindsylm Return mode "default"
+        bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
