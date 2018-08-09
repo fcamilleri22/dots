@@ -4,7 +4,6 @@
 ################################################################################
 # Look/Feel
 ################################################################################
-
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 4
 new_float pixel 4
@@ -231,7 +230,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id wal -Renst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/Scripts/rotateWallpapers.sh &
 exec --no-startup-id sleep 1; compton -b
@@ -243,7 +241,6 @@ exec --no-startup-id clipit
 
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 
 ################################################################################################
 ## TODO: Deal with this, Frank
