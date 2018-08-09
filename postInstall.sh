@@ -82,7 +82,8 @@ sudo pacman -S                                                                  
     nerd-fonts-terminus                                                         \
     ttf-ubuntu-font-family                                                      \
     jsoncpp                                                                     \
-    libmpdclient
+    libmpdclient                                                                \
+    python-pip
 
 yaourt -Syy
 
@@ -109,6 +110,11 @@ apm install                                                                     
 #Then, npm packages
 #npm install -g...
 
+#And pip packages too!
+sudo pip install --upgrade pip
+sudo pip install colorz haishoku
+
+
 ################################################################################
 #3.) Create Projects Directory, clone dotfile repository, replace default confs
 ################################################################################
@@ -129,12 +135,6 @@ stow --dir=$DOTDIR/ --target=$HOME/ polybar
 
 rm -rf $HOME/.config/wal
 stow --dir=$DOTDIR/ --target=$HOME/ wal
-
-rm -rf $HOME/.config/dunst
-stow --dir=$DOTDIR/ --target=$HOME/ dunst
-
-rm -rf $HOME/.config/rofi
-stow --dir=$DOTDIR/ --target=$HOME/ rofi
 
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
