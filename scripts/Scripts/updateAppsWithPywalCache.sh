@@ -13,3 +13,6 @@ mv \
     $HOME/.atom/packages/frank-syntax/styles/colors.less
 
 #Dunst (notification daemon) Theme
+mv \
+    $HOME/.cache/wal/colors-dunst \
+    $HOME/.config/dunst/dunstrc
