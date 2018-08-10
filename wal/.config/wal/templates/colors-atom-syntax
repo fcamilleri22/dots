@@ -1,3 +1,6 @@
+// Note: do NOT commit this file unless YOU, and not a script, made changes to it.
+// It's meant to be edited via automated script whenever the theme is changed.
+
 @very-light-gray: #c5c8c6;
 @light-gray: #969896;
 @gray: #373b41;
