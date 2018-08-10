@@ -1,0 +1,10 @@
+#!/bin/bash
+################################################################################
+#Author: Frank Camilleri (http://deployfrank.sh)
+#TL;DR: a wrapper of the retheme.sh wrapper with default args. For image-based
+#theming using python-colorz
+#License: MIT (do w/e you want with this code as long as MIT license copy
+#included, and I'm not responsible if this code breaks your stuff)
+################################################################################
+
+$HOME/Scripts/retheme.sh --backend colorz -i $@
