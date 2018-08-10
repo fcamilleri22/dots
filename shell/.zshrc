@@ -1,6 +1,6 @@
 ################################################################################
 #Author: Frank Camilleri (http://deployfrank.sh)
-#TL;DR: dot-zsh file. User defined SHELL CONFIGURATIONS go here. NOT SHELL VARIABLES.
+#TL;DR: dot-zsh file. User defined SHELL CONFIGURATIONS + ALIASES go here. NOT SHELL VARIABLES.
 #License: MIT (do w/e you want with this code as long as MIT license copy
 #included, and I'm not responsible if this code breaks your stuff)
 ################################################################################
@@ -24,5 +24,4 @@ fi
 #Configure Less (the file reader) so we can scroll manpages with the mouse.
 export LESS=-R
 
-cat ~/.cache/wal/sequences
 source $ZSH/oh-my-zsh.sh
