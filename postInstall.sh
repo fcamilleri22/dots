@@ -29,13 +29,12 @@ then
 fi
 
 #Update Repos/get nearest repos -- omit ibiblio, is slow.
-$(
+
 sudo pacman-mirrors -c United_States
 sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
-) &
 
 #Edit default /etc/pacman.conf (purely aesthetics)
-$(
+
 sudo sed -i '/Color/s/^#//'           /etc/pacman.conf
 sudo sed -i '/TotalDownload/s/^#//'   /etc/pacman.conf
 sudo sed -i '/VerbosePkgLists/s/^#//' /etc/pacman.conf
@@ -53,9 +52,6 @@ sudo sed -i '/include \"\/usr\/share\/nano\/\*.nanorc\"/s/^#//' /etc/nanorc
 
 #Edit xinitrc so that .Xresources confs can be split into multiple files
 sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
-) &
-
-wait
 
 ################################################################################
 #2.) Install Software from repositories
@@ -66,7 +62,7 @@ wait
 sudo pacman -Syyu --noconfirm
 
 #Install from official repositories...
-sudo pacman -S --noconfirm                                                                 \
+sudo pacman -S --noconfirm                                                      \
     base-devel                                                                  \
     yaourt                                                                      \
     bind-tools                                                                  \
@@ -100,8 +96,7 @@ yaourt -S --noconfirm                                                           
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
     nerd-fonts-fira-code                                                        \
-    oomox                                                                       \
-    rxvt-unicode-better-wheel-scrolling-unicode3
+    oomox
 
 #Then, packages for the atom editor
 #We can paralellize a few things from here on in to make things faster
@@ -126,28 +121,38 @@ sudo pip install                                                                
     colorthief
 ) &
 
+wait
+
 ################################################################################
 #3.) Create Projects Directory, clone dotfile repository, replace default confs
 ################################################################################
 
-$(
 mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
 #Stow scripts dir, and chmod them
+$(
 stow --dir=$DOTDIR/ --target=$HOME/ scripts
 chmod -R +x $HOME/Scripts/*
+) &
 
 #Clear out prebaked configs to prevent stow conflicts, then stow repo config.
+$(
 rm -rf $HOME/.i3
 stow --dir=$DOTDIR/ --target=$HOME/ i3
+) &
 
+$(
 rm -rf $HOME/.config/polybar
 stow --dir=$DOTDIR/ --target=$HOME/ polybar
+) &
 
+$(
 rm -rf $HOME/.config/wal
 stow --dir=$DOTDIR/ --target=$HOME/ wal
+) &
 
+$(
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 ) &
@@ -172,18 +177,17 @@ chsh $(whoami) -s /usr/bin/zsh
 ##Leave things that require user intervention for the very end
 #Set up MariaDB (see the ArchWiki for more info)
 sudo mysql_install_db                                                           \
---user=mysql                                                                \
---basedir=/usr                                                              \
+--user=mysql                                                                    \
+--basedir=/usr                                                                  \
 --datadir=/var/lib/mysql
 
 sudo systemctl start mysqld
 mysql_secure_installation
 
+#Conflicts with regular rxvt-unicode, needs user intervention.
+yaourt -S rxvt-unicode-better-wheel-scrolling-unicode3
+
 echo "All done!!!"
-echo -n "Rebooting in 5 seconds. Ctrl-C to cancel."
-sleep 1; echo -n '.'
-sleep 1; echo -n '.'
-sleep 1; echo -n '.'
-sleep 1; echo -n '.'
-sleep 1; echo -n '.'
+echo -n "Rebooting in 5 seconds. Ctrl-C to cancel..."
+sleep 5
 reboot
