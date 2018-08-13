@@ -29,10 +29,13 @@ then
 fi
 
 #Update Repos/get nearest repos -- omit ibiblio, is slow.
+$(
 sudo pacman-mirrors -c United_States
 sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
+) &
 
 #Edit default /etc/pacman.conf (purely aesthetics)
+$(
 sudo sed -i '/Color/s/^#//'           /etc/pacman.conf
 sudo sed -i '/TotalDownload/s/^#//'   /etc/pacman.conf
 sudo sed -i '/VerbosePkgLists/s/^#//' /etc/pacman.conf
@@ -50,6 +53,9 @@ sudo sed -i '/include \"\/usr\/share\/nano\/\*.nanorc\"/s/^#//' /etc/nanorc
 
 #Edit xinitrc so that .Xresources confs can be split into multiple files
 sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
+) &
+
+wait
 
 ################################################################################
 #2.) Install Software from repositories
@@ -57,10 +63,10 @@ sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 
 
 #Update mirrors + system
-sudo pacman -Syyu
+sudo pacman -Syyu --noconfirm
 
 #Install from official repositories...
-sudo pacman -S                                                                  \
+sudo pacman -S --noconfirm                                                                 \
     base-devel                                                                  \
     yaourt                                                                      \
     bind-tools                                                                  \
@@ -85,12 +91,12 @@ sudo pacman -S                                                                  
     libmpdclient                                                                \
     python-pip
 
-yaourt -Syy
+yaourt -Syy --noconfirm
 
 #Then, install from the User Repository...
 #NOTE: rxvt-unicode-better-blah-blah causes a conflict with preinstalled
 # rxvt-unicode.
-yaourt -S                                                                       \
+yaourt -S --noconfirm                                                           \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
     nerd-fonts-fira-code                                                        \
@@ -98,30 +104,33 @@ yaourt -S                                                                       
     rxvt-unicode-better-wheel-scrolling-unicode3
 
 #Then, packages for the atom editor
-apm install                                                                     \
-    gruvbox-plus-syntax                                                         \
+#We can paralellize a few things from here on in to make things faster
+$(
+apm install                                                                     \                                                \
     pigments                                                                    \
     minimap                                                                     \
     minimap-pigments                                                            \
     minimap-highlight-selected                                                  \
     language-ini                                                                \
     language-terraform
-
+) &
 #Then, npm packages
 #npm install -g...
 
 #And pip packages too!
+$(
 sudo pip install --upgrade pip
 sudo pip install                                                                \
     colorz                                                                      \
     haishoku                                                                    \
     colorthief
-
+) &
 
 ################################################################################
 #3.) Create Projects Directory, clone dotfile repository, replace default confs
 ################################################################################
 
+$(
 mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
@@ -141,19 +150,12 @@ stow --dir=$DOTDIR/ --target=$HOME/ wal
 
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
+) &
 
+wait
 ################################################################################
 #4.) Initialize software and configure remaining loose ends
 ################################################################################
-
-#Set up MariaDB (see the ArchWiki for more info)
-sudo mysql_install_db                                                           \
-    --user=mysql                                                                \
-    --basedir=/usr                                                              \
-    --datadir=/var/lib/mysql
-
-sudo systemctl start mysqld
-mysql_secure_installation
 
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
@@ -161,8 +163,27 @@ FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
 echo 'user_pref("widget.content.gtk-theme-override", "Adwaita:light");'         \
     >>$HOME/.mozilla/firefox/$FFPREFSDIR/prefs.js
 
-#Change Shell
-chsh -s /usr/bin/zsh
+#run a default theme for next reboot
+$HOME/Scripts/PATHed/retheme-by-builtin sexy-neon
 
-echo "All done!"
-echo "You should reboot this computer to ensure all changes take effect using 'sudo reboot'"
+#Change Shell
+chsh $(whoami) -s /usr/bin/zsh
+
+##Leave things that require user intervention for the very end
+#Set up MariaDB (see the ArchWiki for more info)
+sudo mysql_install_db                                                           \
+--user=mysql                                                                \
+--basedir=/usr                                                              \
+--datadir=/var/lib/mysql
+
+sudo systemctl start mysqld
+mysql_secure_installation
+
+echo "All done!!!"
+echo -n "Rebooting in 5 seconds. Ctrl-C to cancel."
+sleep 1; echo -n '.'
+sleep 1; echo -n '.'
+sleep 1; echo -n '.'
+sleep 1; echo -n '.'
+sleep 1; echo -n '.'
+reboot
