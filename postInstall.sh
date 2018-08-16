@@ -179,6 +179,13 @@ $HOME/Scripts/PATHed/retheme-by-builtin sexy-neon
 #Change Shell
 chsh $(whoami) -s /usr/bin/zsh
 
+#set up a default wallpaper
+WALLDIR=$HOME/Pictures/Wallpapers
+WALL=pawel-nolbert-291146-unsplash.jpg
+mkdir $WALLDIR
+cp $DOTDIR/$WALL $WALLDIR
+nitrogen --set-centered $WALLDIR/$WALL
+
 ##Leave things that require user intervention for the very end
 #Set up MariaDB (see the ArchWiki for more info)
 sudo mysql_install_db                                                           \

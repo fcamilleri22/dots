@@ -6,7 +6,7 @@
 #included, and I'm not responsible if this code breaks your stuff)
 ################################################################################
 
-WALLPAPERDIR=$HOME/Pictures/FranksWallpaperCollection
+WALLPAPERDIR=$HOME/Pictures/Wallpapers
 
 while true
 do
