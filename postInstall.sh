@@ -153,6 +153,11 @@ stow --dir=$DOTDIR/ --target=$HOME/ wal
 ) &
 
 $(
+rm -f $HOME/.atom/config.cson
+stow --dir=$DOTDIR/ --target=$HOME/ atom
+) &
+
+$(
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 ) &
