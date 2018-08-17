@@ -40,7 +40,6 @@ line-size = 4
 border-bottom-size = 1
 border-bottom-color = ${xrdb:color8}
 
-module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "Terminus:size=8"
