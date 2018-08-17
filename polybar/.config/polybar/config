@@ -51,7 +51,7 @@ padding-left = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Ubuntu:size=12:antialias=true"
+font-0 = "Terminus:size=8"
 font-1 = "Terminus:size=8"
 
 modules-left = i3
@@ -172,7 +172,7 @@ format-underline = ${xrdb:color6}
 ;Get device name script depends on the order.
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp3s0
 interval = 3.0
 format-connected-prefix-font = 2
 format-connected-prefix = "WIFI IP: "
@@ -198,7 +198,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s3
+interface = enp0s25
 interval = 3.0
 format-connected-prefix-font = 2
 format-connected-prefix = "WIRED IP: "
