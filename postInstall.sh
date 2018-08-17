@@ -85,7 +85,10 @@ sudo pacman -S --noconfirm                                                      
     ttf-ubuntu-font-family                                                      \
     jsoncpp                                                                     \
     libmpdclient                                                                \
-    python-pip
+    python-pip                                                                  \
+    manjaro-pulse                                                               \
+    pavucontrol                                                                 \
+    pa-applet
 
 yaourt -Syy --noconfirm
 
