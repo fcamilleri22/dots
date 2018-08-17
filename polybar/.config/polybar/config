@@ -159,8 +159,6 @@ format-underline = ${xrdb:color6}
 
 
 
-;Configure wlan right before eth
-;Get device name script depends on the order.
 [module/wlan]
 type = internal/network
 interface = net1
