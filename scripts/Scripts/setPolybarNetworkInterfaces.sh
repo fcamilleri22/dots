@@ -4,8 +4,14 @@ CFG=$HOME/.config/polybar/config
 WIFI=$($DIR/getWifiInterfaceName.sh)
 WIRED=$($DIR/getWiredInterfaceName.sh)
 
-[ "$WIFI" ] && \
-    sed -rz -i "s/interface = \w+/interface = $WIFI/1"  $CFG
 
-[ "$WIRED" ] && \
-    sed -rz -i "s/interface = \w+/interface = $WIRED/2" $CFG
+
+sed -r -i "
+    /module\/wlan/, /module/ {
+        s/interface =.*/interface = $WIFI/
+    }" $CFG
+
+sed -r -i "
+    /module\/eth/, /module/ {
+        s/interface =.*/interface = $WIRED/
+    }" $CFG
