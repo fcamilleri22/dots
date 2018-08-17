@@ -167,6 +167,9 @@ wait
 #4.) Initialize software and configure remaining loose ends
 ################################################################################
 
+#Ensure Polybar config has the correct network interface names
+$HOME/Scripts/setPolybarNetworkInterfaces.sh
+
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
 
@@ -182,6 +185,7 @@ chsh $(whoami) -s /usr/bin/zsh
 #set up a default wallpaper
 WALLDIR=$HOME/Pictures/Wallpapers
 WALL=pawel-nolbert-291146-unsplash.jpg
+
 mkdir $WALLDIR
 cp $DOTDIR/$WALL $WALLDIR
 nitrogen --set-centered $WALLDIR/$WALL
