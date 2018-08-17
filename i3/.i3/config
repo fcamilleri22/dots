@@ -232,6 +232,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/Scripts/rotateWallpapers.sh &
+exec --no-startup-id ~/Scripts/setPolybarNetworkInterfaces.sh
 exec --no-startup-id sleep 1; compton -b
 exec --no-startup-id polybar main
 
