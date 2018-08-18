@@ -35,7 +35,7 @@
 
    `sh -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh -O -)"`
 
-   This command downloads and installs everything needed.
+   This command downloads and installs everything needed, then reboots again.
 
 3. **GET SOMETHING DONE!**
 
