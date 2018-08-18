@@ -52,11 +52,6 @@ set_from_resource $sel color3
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-# change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 # kill focused window
@@ -208,10 +203,8 @@ bindsym $mod+Return exec terminal
 bindsym $mod+Shift+Return exec firefox-developer-edition
 #file manager
 bindsym $mod+F1 exec pcmanfm
-#root file manager
-bindsym $mod+Shift+F1 exec gksu pcmanfm
 #text editor
-bindsym $mod+F2 exec atom
+bindsym $mod+F2 exec mousepad
 #Rofi Launcher
 bindsym $mod+d exec rofi \
     -theme ~/.cache/wal/colors-rofi \
