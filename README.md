@@ -1,8 +1,10 @@
-# Frank's Personal Dotfiles
-**warning**: this is currently in **early development** with unstable commits being added to master until the end of August 2018. Use at your own risk. With that being said, this documentation is also heavily in flux, so please check back often!
+# Frank's Personal Work Environment
+**warning**: this is currently in **early development** with unstable commits being added to master until the end of August 2018. Use at your own risk.
 
 ## What is this?
-`dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
+`dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base. Together, these scripts and configuration files form an operating system experience that:
+- Always feels clean, tidy, quick, efficient, and generally nice (at least to me, the primary audience) without being dull, boring, or ancient-looking.
+- Allows for fully color coordinated retheming according to whatever color palette the user (hey, that could be **you!**) desires, in a single cli command.
 
 ## Dirty
 ![Dirty](dirty_dots.png)
@@ -10,7 +12,6 @@
 ![Clean](clean_dots.png)
 
 ## Design Goals:
-**Disclaimer: These are GOALS, not FEATURES. Hopefully soon, they will all be features.**
 
 1. **Keep all internals as simple as possible**, where simple is defined by the Arch Linux principle "without unnecessary additions or modifications." Only the minimal number of packages needed to get my work done should be included in these scripts. Anything else can potentially introduce external variables that I may not be aware of during my work that may cause bugs and/or waste time.
 
@@ -24,6 +25,8 @@
 
 6. **Each development environment shall be treated like cattle, not like a pet. They must be destructible at any time, for any reason, intentional or otherwise.** Any configuration change to my development environment I deem worthwhile shall be committed and backed up in this repository. I should be able to get a new development environment ready to work again, fully functional and configured should something happen to the machine I'm working on with zero heartbreak. This is possible because all my useful work should be committed, all of my secrets/keys are backed up in a system featuring multi-factor authentication, all the configured options of my operating system are committed, and the deployment of all of this should be automated.
 
+**Any additions and changes to this setup process will be motivated by these goals.**
+
 ## Alright, Frank, I read your silly design manifesto, and I want to code with your setup. How?
 
 1. Do a fresh install of the **Manjaro i3 Community Edition**.
@@ -34,32 +37,25 @@
 
    This command downloads and installs everything needed.
 
-3. When the script is finished, reboot one more time.
+3. **GET SOMETHING DONE!**
 
-4. **GET SOMETHING DONE!**
-
-**Coming Soon™**: If you are using a monitor with a resolution lower than 2560x1440, use this instead:
+**Using a laptop? Smaller screen?**: If you are using a monitor with a resolution lower than 2560x1440, use this instead:
 
 `sh -c "$(wget https://raw.githubusercontent.com/fcamilleri22/dots/laptop/postInstall.sh -O -)"`
 
-This doesn't work yet, (duh, it's **Coming Soon™**), but once I finish it, will install a version of my interface with slightly smaller fonts and more compact elements. I do my development work primarily on single 30+ inch 4k monitors (multiple monitor setups are overstimulating/distracting to me,) but I also write code on my couch on a 15 inch Thinkpad with a 1080p screen.
+This is an alternate branch with slightly different default configs built specifically for a 1080p screen in mind.
 
-### **WARNING**: This process was designed with *FRESH* installs in mind. If you run this on an already running system, you WILL have a bad time. If you want to just try this out, feel free to simply copy/paste the configuration files included in this repository.
+### **WARNING**: This process was designed with *FRESH* installs in mind. If you run this on an already running system, you WILL have a bad time. If you want to just try this out, use a VM or a secondary machine.
 
 ## Known Issues
-- Generally speaking, this is **unfinished.**
-- Installer is USA-centric. Edit the `sudo pacman-mirrors -c ...` line if you're not in North America.
-- Polybar's network monitors can't automatically tell the correct name of the primary network interface, whether wired or wireless.
-- There's an issue in Atom where windows above about 4mil pixels (larger than 1440p) will have unrendered patches.
-  - Temp. Workaround: use multiple Atom windows.
+- Generally speaking, this is **almost finished, but not quite ready.**
+- Installer is NA-centric. Edit the `sudo pacman-mirrors -c ...` line if you're not in North America.
+- There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 - Initial font configuration is still not automatic, and some fonts are not yet consistent.
 - There's no cheat sheet for controls/custom functions.
-- The volume slider does not mute sound; it simply sets it really really really really low.
-- Theming is not yet universal (i.e. you still have to change Atom/X/GTK themes separately.)
-- These docs only really cover the installation process. **There is no user manual yet.**
-- Did I mention that this is still in active early development with hot commits still being made onto master? If you're not me, I wouldn't use this (yet.)
+- These docs only really cover the installation process.
 
-## How does that magical single command installation work?
+## How does that super dandy single command installation work?
 After installing the **Manjaro i3 Community Edition**, which provides all our base prerequisites, we run our "main" script, **postInstall.sh** as a **non-root** user by downloading it straight from GitHub's raw files (`wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh`) as a single file (`-O`) dumped right to the standard output (`-`), which is then immediately read and invoked by your shell (`sh -c "$(wget...)"`,) where the `"$(...)""` indicates a command substitution. In this case, the command being substituted in is our entire script! Ain't that dandy? This script runs in 4 phases:
 
 1. **Ensure we're not running as root, and prepare system level configurations.** Namely, we make sure we're grabbing system software from the closest mirror possible (omitting known slow ones) and making some configuration changes to `pacman` and `nano`, the Arch Linux system package manager, and a dandy terminal text editor, respectively. Why not as root? We want to let the script control permissions on its own as needed, in case any of its parts need to call some third party code, such as `yaourt,` the AUR package manager.
@@ -68,10 +64,10 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 
 3. **Create Projects Directory, clone `dots` repository, and swap in my config files.** I keep all git repositories that I'm actively contributing to inside `~/Projects/`, including this repository. In this phase, I make said directory, clone this entire repository to that directory. Lastly, using `stow`, a GNU symlink manager, I remove any configuration file I have a replacement for in the repository, and replace them with symlinks to configuration files contained within `dots`. This enables me to quickly commit any changes I may make to those configurations in the future, since they are all available in one central location
 
-4. **Initialize software that needs initial setup, and configure remaining loose ends** In this last section, we initialize anything that needs initialization, including our `mariadb` instance, and we perform any small one off configurations that don't warrant dotfiles, such a small firefox theme fix, and changing the shell to `zsh`, my preferred default terminal shell.
+4. **Initialize software that needs initial setup, and configure remaining loose ends** In this last section, we initialize anything that needs initialization, including our `mariadb` instance, and we perform any small one off configurations that don't warrant dotfiles, such a small firefox theme fix, setting a default theme and wallpaper, and changing the shell to `zsh`, my preferred default terminal shell. Also, any other installations that require user intervention are pushed to this section.
 
 
-## What exactly am I during this process. Why?
+## What exactly am I installing during this process. Why?
 
 #### From the official Manjaro Repositories:
 
@@ -95,6 +91,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `nerd-fonts-terminus`: font I use in live terminals, patched with emojis and icons.
 - `ttf-ubuntu-font-family`: systemwide default sans-serif fonts. They're pretty.
 - `libmpdclient` and `jsoncpp` are prerequisites of certain Polybar plugins.
+- `manjaro-pulse, pa-applet, pavucontrol` are for audio support and control.
 
 
 
@@ -104,9 +101,9 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `oh-my-zsh-git`: plugin manager for zsh, from github.com/robbyrussell/oh-my-zsh.
 - `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
 - `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
-- 'rxvt-unicode-better-wheel-scrolling-unicode3': a patched version of the popular terminal "urxvt" that allows for glyphs and mouse scrolling.
+- `rxvt-unicode-better-wheel-scrolling-unicode3`: a patched version of the popular terminal "urxvt" that allows for glyphs and mouse scrolling.
 
-**Coming Soon**: additions for Kotlin/Scala development. I want to get the Theming/JS/Node things done before I start thinking about autotheming Intellij. I love my JVM languages, but I hate Java - its typing is TOO strict, and I don't want to write 20 different wrapper interfaces to reuse a small chunk of code.
+**Coming Soon**: additions for Kotlin/Scala/Java development, including autotheming JetBrains' Intellij suite.
 
 ## What about Gaming?
 Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
@@ -119,4 +116,12 @@ With all that being said, if you still want to game with this, look into:
 Don't ask me for help with the above - I haven't tried to run games in Linux since 2010.
 
 ## My machine has 3 different network interfaces and 3 monitors - why doesn't this work/why does this look weird?
-Because this isn't for that. As stated above, these are my configuration files for me to get my work done. I do not work on multi-monitor setups, and thus won't dedicate time to fixing any issues there unless I start working on multi-monitor setups, and the machines I work with have, at most, a wired and wireless interface, and no more than that. If I am working on a machine with more than that, it's a server and I'm not running this on servers. If you want that functionality, feel free to contribute or fork.
+Because this isn't for that. As stated above, these are my configuration files for me to get my work done. I do not work on multi-monitor setups, and thus won't dedicate time to fixing any issues there unless I start working on multi-monitor setups, and the machines I work with have, at most, a wired and wireless interface, and no more than that. If I am working on a machine with more than that, it's a server and I'm not running this on servers.
+## I want to improve on this. How?
+Please create issues and/or write pull requests!
+## I want to use this, but I want to make and maintain little tweaks of it. How?
+Fork this, and do it big!
+
+## Special Thanks
+
+I'd like to thank all the Manjaro/Arch Linux maintainers out there, especially Bernhard Landauer, aka `oberon`, the primary maintainer of the Manjaro i3 Community Edition. I'd like to thank Dylan Araps for building `wal`, the centerpiece powering this setup's grand retheming abilities. I'd also like to thank all the artists who've contributed fonts and icons to open source, and thus this work. One of them being Pawel Nolbert, who took the picture I'm using as the default background and posted it openly to Unsplash, who also get some thanks. Also, the folks at GitHub for providing their platform and the Atom Editor, which are just such pleasures to work with (actually!) Lastly, to my Alyssa -- to think there's actually someone on this planet willing to deal with my antics on a daily basis is an impossible thought, but she's an impossibly great person.
