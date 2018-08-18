@@ -15,3 +15,5 @@
 - Finish Atom Plugins/npm stuff for node/javascript development
 
 - SECRETS! (like, the ssh kind)
+
+- Links to acknowledgments in Special Thanks
