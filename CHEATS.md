@@ -1,7 +1,41 @@
-# Frankdots Cheatsheet
+# Frankdots Cheatsheet (UNDER CONSTRUCTION)
+## Desktop Environment Controls
+**win+mouse:** Left click to move a floating window, right click to resize one.
 
-# Desktop Environment Controls
+**win+Arrows OR j/k/l/; :** Change active window
 
-# What's handling what, where
+**win+Shift+Arrows OR j/k/l/; :** Move window title
 
-# Further Configuration
+**win+1-8:** Switch workspace
+
+**win+Shift+1-8:** Move active window to workspace
+
+**win+Enter:** Open a Terminal
+
+**win+Shift+Enter:** Open Firefox
+
+**win+F1:** Open a File Manager (`pcmanfm`)
+
+**win+F2:** Open a minimal text editor (`mousepad`)
+
+**win+D:** Open the Rofi Program Launcher (pretty much our "start" menu)
+
+## What's Handling What, Where
+
+## Changing interface color themes/wallpapers
+
+#### Note: if a program you're using does not theme properly, create an issue. Some programs, namely those that use GTK3, need to be restarted before theme changes take effect.
+
+All wallpapering is handled by `nitrogen.` By default, the wallpaper changes every 10 minutes to any random image in the folder `~/Pictures/Wallpapers`, which is created during the install script. To change this behavior, edit `~/Scripts/rotateWallpapers.sh`
+
+
+`retheme-by-builtin [THEMENAME]` changes interface colors according to the themes that come packaged with `pywal`. Invoking this without an argument will return all possible themes. My personal favorites are `base16-gruvbox-hard`, `sexy-neon` (the default), `base16-outrun`, and `base16-black-metal-venom`.
+
+
+`retheme-by-image{0-4} [IMAGELOCATION]` changes interface colors according to the dominant color palette of an input image. `retheme-by-image0` uses the default `wal` backend to determine this palette, and the other invocations use different backends, which yield different palettes. **Changing the theme according to a wallpaper slideshow is NOT recommended because the generated themes are not always comfortably readable, and because many applications require a restart for theme changes to fully take effect.**
+
+#### For best results, stick to using/editing these wrappers, located at `~/Scripts/ and ~/Scripts/PATHed/` instead of invoking `wal` directly. This not only keeps cli arguments simple, but also maintains a seperation of concerns between `wal` and `nitrogen` so they do not both try to control your wallpaper.
+
+
+
+## Further Configuration
