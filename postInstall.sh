@@ -161,6 +161,11 @@ stow --dir=$DOTDIR/ --target=$HOME/ atom
 ) &
 
 $(
+rm -f $HOME/.gtkrc-2.0 $HOME/.config/gtk-3.0/settings.ini
+stow --dir=$DOTDIR/ --target=$HOME/ gtk
+) &
+
+$(
 rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
 stow --dir=$DOTDIR/ --target=$HOME/ shell
 ) &
