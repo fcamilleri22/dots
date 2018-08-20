@@ -24,13 +24,28 @@ then
     exit 1
 fi
 
-#Update Repos/get nearest repos -- omit ibiblio, is slow.
-
-sudo pacman-mirrors -c United_States
-sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
+#Get best Pacman Mirrors
+while true; do
+    read -p "Are you in North America? [y/n]" answer
+    case $answer in
+        [Yy])
+            #Use Frank's options, omitting distro.ibiblio.org
+            #because of known slowness
+            sudo pacman-mirrors -c United_States,Canada
+            sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
+            break
+            ;;
+        [Nn])
+            #Let user settle interactively
+            sudo pacman-mirrors -i
+            break
+            ;;
+        *)
+        echo "Please answer y or n."
+    esac
+done
 
 #Edit default /etc/pacman.conf (purely aesthetics)
-
 sudo sed -i '/Color/s/^#//'           /etc/pacman.conf
 sudo sed -i '/TotalDownload/s/^#//'   /etc/pacman.conf
 sudo sed -i '/VerbosePkgLists/s/^#//' /etc/pacman.conf

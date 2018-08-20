@@ -47,9 +47,7 @@ This is an alternate branch with slightly different default configs built specif
 
 ## Known Issues
 - Generally speaking, this is **almost finished, but not quite ready.**
-- Installer is NA-centric. Edit the `sudo pacman-mirrors -c ...` line if you're not in North America.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
-- Initial font configuration is still not automatic, and some fonts are not yet consistent.
 - There's no cheat sheet for controls/custom functions.
 - These docs only really cover the installation process.
 
