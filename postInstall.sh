@@ -134,45 +134,14 @@ mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
 #Stow scripts dir, and chmod them
-$(
 stow --dir=$DOTDIR/ --target=$HOME/ scripts
 chmod -R +x $HOME/Scripts/*
-) &
 
-#Clear out prebaked configs to prevent stow conflicts, then stow repo config.
-$(
-rm -rf $HOME/.i3
-stow --dir=$DOTDIR/ --target=$HOME/ i3
-) &
+#Then handle the other stows.
+$HOME/Scripts/stowConfigs.sh $DOTDIR
 
-$(
-rm -rf $HOME/.config/polybar
-stow --dir=$DOTDIR/ --target=$HOME/ polybar
-) &
-
-$(
-rm -rf $HOME/.config/wal
-stow --dir=$DOTDIR/ --target=$HOME/ wal
-) &
-
-$(
-rm -f $HOME/.atom/config.cson
-stow --dir=$DOTDIR/ --target=$HOME/ atom
-) &
-
-$(
-rm -f $HOME/.gtkrc-2.0 $HOME/.config/gtk-3.0/settings.ini
-stow --dir=$DOTDIR/ --target=$HOME/ gtk
-) &
-
-$(
-rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
-stow --dir=$DOTDIR/ --target=$HOME/ shell
-) &
-
-wait
 ################################################################################
-#4.) Initialize software and configure remaining loose ends
+#4.) Initialize other packages, take care of things that require user intervention
 ################################################################################
 
 #Ensure Polybar config has the correct network interface names
