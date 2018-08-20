@@ -2,9 +2,7 @@
 **warning**: this is currently in **early development** with unstable commits being added to master until the end of August 2018. Use at your own risk.
 
 ## What is this?
-`dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base. Together, these scripts and configuration files form an operating system experience that:
-- Always feels clean, tidy, quick, efficient, and generally nice (at least to me, the primary audience) without being dull, boring, or ancient-looking.
-- Allows for fully color coordinated retheming according to whatever color palette the user (hey, that could be **you!**) desires, in a single cli command.
+`dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
 
 ## Dirty
 ![Dirty](dirty_dots.png)
@@ -106,7 +104,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 **Coming Soon**: additions for Kotlin/Scala/Java development, including autotheming JetBrains' Intellij suite.
 
 ## What about Gaming?
-Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core hyperthreaded AMD Ryzen processor (16 cores!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
+Aside from a few small Linux native Steam games I keep installed on my laptop for when I'm traveling, **I do not game with this setup.** All machines I use at work are exactly that: work machines. My primary computer at home is a Windows machine with tons of memory and an 8-core AMD Ryzen processor (16 threads!), which I built with virtualizing clusters of small Linux machines and simulating distributed systems in mind. If I'm gaming, it's happening in Windows.
 
 With all that being said, if you still want to game with this, look into:
 - [Wine](https://www.winehq.org/): A Windows compatibility layer for Linux.
