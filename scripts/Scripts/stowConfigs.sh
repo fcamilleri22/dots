@@ -3,6 +3,8 @@
 #NOTE: This needs to be rerun every time the dots repo is updated.
 DOTDIR=$1
 
+[ -z "$DOTDIR" ] && DOTDIR=$HOME/Projects/dots
+
 swapAndStow () {
     PKG=$1
     shift
@@ -18,3 +20,5 @@ swapAndStow gtk     $HOME/.gtkrc-2.0 $HOME/.config/gtk-3.0/settings.ini &
 swapAndStow shell   $HOME/.Xresources $HOME/.zshrc $HOME/.profile       &
 
 wait
+
+echo "Config Symlinking Successful!"
