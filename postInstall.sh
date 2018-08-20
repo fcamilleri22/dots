@@ -17,10 +17,6 @@
 # (pacman, nano, etc.) and user .xinitrc
 ################################################################################
 
-BRANCH="master" #what git branch of 'dots' to fetch other files from
-PROJDIR="$HOME/Projects" #Where you want your "projects" directory to live
-DOTDIR="$PROJDIR/dots" #Where you want to put the rest of the 'dots' git repo.
-
 #Determine if root or 'nobody'. If either, exit script.
 if [ $UID -eq 0 ] || [ $UID -eq 99 ]
 then
@@ -129,6 +125,10 @@ wait
 ################################################################################
 #3.) Create Projects Directory, clone dotfile repository, replace default confs
 ################################################################################
+
+BRANCH="master" #what git branch of 'dots' to fetch other files from
+PROJDIR="$HOME/Projects" #Where you want your "projects" directory to live
+DOTDIR="$PROJDIR/dots" #Where you want to put the rest of the 'dots' git repo.
 
 mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
