@@ -233,7 +233,7 @@ exec --no-startup-id clipit
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id ~/Scripts/setcursor.sh
-exec_always --no-startup-id ~/Scripts/stowConfigs.sh
+# exec_always --no-startup-id ~/Scripts/stowConfigs.sh
 
 ################################################################################
 # Specific Application settings
