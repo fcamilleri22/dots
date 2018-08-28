@@ -125,7 +125,7 @@ sudo pip install                                                                
 #Then, install from the User Repository...
 #NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
 # preinstalled rxvt-unicode. Shifted install to the end.
-yaourt -Syyua --noconfirm --needed                                                 \
+yaourt -Syua --noconfirm --needed                                                 \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
     nerd-fonts-fira-code                                                        \
