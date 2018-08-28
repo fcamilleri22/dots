@@ -2,7 +2,6 @@
 #Clear out prebaked configs to prevent stow conflicts, then stow repo config.
 
 DOTDIR=$1
-
 [ -z "$DOTDIR" ] && DOTDIR=$HOME/Projects/dots
 
 swapAndStow () {
