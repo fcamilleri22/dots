@@ -17,10 +17,6 @@
 # (pacman, nano, etc.) and user .xinitrc
 ################################################################################
 
-BRANCH="master" #what git branch of 'dots' to fetch other files from
-PROJDIR="$HOME/Projects" #Where you want your "projects" directory to live
-DOTDIR="$PROJDIR/dots" #Where you want to put the rest of the 'dots' git repo.
-
 #Determine if root or 'nobody'. If either, exit script.
 if [ $UID -eq 0 ] || [ $UID -eq 99 ]
 then
@@ -28,13 +24,28 @@ then
     exit 1
 fi
 
-#Update Repos/get nearest repos -- omit ibiblio, is slow.
-
-sudo pacman-mirrors -c United_States
-sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
+#Get 'best' Pacman Mirrors
+while true; do
+    read -p "Are you in North America? [y/n]" answer
+    case $answer in
+        [Yy])
+            #Use Frank's options, omitting distro.ibiblio.org
+            #because of known slowness
+            sudo pacman-mirrors -c United_States,Canada
+            sudo sed -i '/ibiblio/d' /etc/pacman.d/mirrorlist
+            break
+            ;;
+        [Nn])
+            #Let user settle interactively
+            sudo pacman-mirrors -i
+            break
+            ;;
+        *)
+        echo "Please answer y or n."
+    esac
+done
 
 #Edit default /etc/pacman.conf (purely aesthetics)
-
 sudo sed -i '/Color/s/^#//'           /etc/pacman.conf
 sudo sed -i '/TotalDownload/s/^#//'   /etc/pacman.conf
 sudo sed -i '/VerbosePkgLists/s/^#//' /etc/pacman.conf
@@ -57,12 +68,8 @@ sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 #2.) Install Software from repositories
 ################################################################################
 
-
-#Update mirrors + system
-sudo pacman -Syyu --noconfirm
-
 #Install from official repositories...
-sudo pacman -S --noconfirm                                                      \
+sudo pacman -Syyu --noconfirm --needed                                          \
     base-devel                                                                  \
     yaourt                                                                      \
     bind-tools                                                                  \
@@ -90,21 +97,12 @@ sudo pacman -S --noconfirm                                                      
     pavucontrol                                                                 \
     pa-applet
 
-yaourt -Syy --noconfirm
-
-#Then, install from the User Repository...
-#NOTE: rxvt-unicode-better-blah-blah causes a conflict with preinstalled
-# rxvt-unicode.
-yaourt -S --noconfirm                                                           \
-    smartgit                                                                    \
-    oh-my-zsh-git                                                               \
-    nerd-fonts-fira-code                                                        \
-    oomox
+#After pacman is finished, we can take care of any other package managers
+#in parallel
 
 #Then, packages for the atom editor
-#We can paralellize a few things from here on in to make things faster
-$(
-apm install                                                                     \                                                \
+(
+apm install                                                                     \
     pigments                                                                    \
     minimap                                                                     \
     minimap-pigments                                                            \
@@ -116,7 +114,7 @@ apm install                                                                     
 #npm install -g...
 
 #And pip packages too!
-$(
+(
 sudo pip install --upgrade pip
 sudo pip install                                                                \
     colorz                                                                      \
@@ -124,50 +122,43 @@ sudo pip install                                                                
     colorthief
 ) &
 
+#Then, install from the User Repository...
+#NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
+# preinstalled rxvt-unicode. Shifted install to the end.
+yaourt -Syua --noconfirm --needed                                               \
+    smartgit                                                                    \
+    oh-my-zsh-git                                                               \
+    nerd-fonts-fira-code                                                        \
+    oomox                                                                       \
+    la-capitaine-icon-theme                                                     \
+    capitaine-cursors                                                           \
+    capitaine-cursors-hidpi
+
 wait
 
 ################################################################################
 #3.) Create Projects Directory, clone dotfile repository, replace default confs
 ################################################################################
 
+BRANCH="master" #what git branch of 'dots' to fetch other files from
+PROJDIR="$HOME/Projects" #Where you want your "projects" directory to live
+DOTDIR="$PROJDIR/dots" #Where you want to put the rest of the 'dots' git repo.
+
 mkdir $PROJDIR
 git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 
 #Stow scripts dir, and chmod them
-$(
 stow --dir=$DOTDIR/ --target=$HOME/ scripts
 chmod -R +x $HOME/Scripts/*
-) &
 
-#Clear out prebaked configs to prevent stow conflicts, then stow repo config.
-$(
-rm -rf $HOME/.i3
-stow --dir=$DOTDIR/ --target=$HOME/ i3
-) &
+#Then, run stowConfigs to handle all other config files.
+$HOME/Scripts/stowConfigs.sh
 
-$(
-rm -rf $HOME/.config/polybar
-stow --dir=$DOTDIR/ --target=$HOME/ polybar
-) &
+#Lastly, leave the username of whoever's using this installer in .Xresources for i3
+echo "username: $(whoami)" >>$HOME/.Xresources
 
-$(
-rm -rf $HOME/.config/wal
-stow --dir=$DOTDIR/ --target=$HOME/ wal
-) &
-
-$(
-rm -f $HOME/.atom/config.cson
-stow --dir=$DOTDIR/ --target=$HOME/ atom
-) &
-
-$(
-rm -f $HOME/.Xresources $HOME/.zshrc $HOME/.profile
-stow --dir=$DOTDIR/ --target=$HOME/ shell
-) &
-
-wait
 ################################################################################
-#4.) Initialize software and configure remaining loose ends
+#4.) Initialize other packages, take care of things that require user intervention
 ################################################################################
 
 #Ensure Polybar config has the correct network interface names
@@ -204,6 +195,7 @@ sudo systemctl start mysqld
 mysql_secure_installation
 
 #Conflicts with regular rxvt-unicode, needs user intervention.
+#Using --noconfirm here will autofail this section!
 yaourt -S rxvt-unicode-better-wheel-scrolling-unicode3
 
 echo "All done!!!"

@@ -1,11 +1,13 @@
 "*":
   core:
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "frank-syntax"
     ]
   editor:
     fontFamily: "FuraCode Nerd Font"
+    tabLength: 4
   "exception-reporting":
     userId: "53e76cc7-5e3c-4652-9689-7cbe1c4f28fb"
   minimap:
@@ -14,3 +16,5 @@
       "highlight-selectedDecorationsZIndex": 0
       pigments: true
       pigmentsDecorationsZIndex: 0
+  welcome:
+    showOnStartup: false
