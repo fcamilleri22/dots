@@ -68,12 +68,8 @@ sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 #2.) Install Software from repositories
 ################################################################################
 
-
-#Update mirrors + system
-sudo pacman -Syyu --noconfirm
-
 #Install from official repositories...
-sudo pacman -S --noconfirm                                                      \
+sudo pacman -Syyu --noconfirm --needed                                          \
     base-devel                                                                  \
     yaourt                                                                      \
     bind-tools                                                                  \
@@ -101,19 +97,10 @@ sudo pacman -S --noconfirm                                                      
     pavucontrol                                                                 \
     pa-applet
 
-yaourt -Syy --noconfirm
-
-#Then, install from the User Repository...
-#NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
-# preinstalled rxvt-unicode. Shifted install to the end.
-yaourt -S --noconfirm                                                           \
-    smartgit                                                                    \
-    oh-my-zsh-git                                                               \
-    nerd-fonts-fira-code                                                        \
-    oomox
+#After pacman is finished, we can take care of any other package managers
+#in parallel
 
 #Then, packages for the atom editor
-#We can paralellize a few things from here on in to make things faster
 (
 apm install                                                                     \
     pigments                                                                    \
@@ -134,6 +121,15 @@ sudo pip install                                                                
     haishoku                                                                    \
     colorthief
 ) &
+
+#Then, install from the User Repository...
+#NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
+# preinstalled rxvt-unicode. Shifted install to the end.
+yaourt -Syyua --noconfirm --needed                                                 \
+    smartgit                                                                    \
+    oh-my-zsh-git                                                               \
+    nerd-fonts-fira-code                                                        \
+    oomox
 
 wait
 
@@ -196,6 +192,7 @@ sudo systemctl start mysqld
 mysql_secure_installation
 
 #Conflicts with regular rxvt-unicode, needs user intervention.
+#Using --noconfirm here will autofail this section!
 yaourt -S rxvt-unicode-better-wheel-scrolling-unicode3
 
 echo "All done!!!"
