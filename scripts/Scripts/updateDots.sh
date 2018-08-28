@@ -28,5 +28,11 @@ fi
 #This includes a full system update.
 sh -c "$(cat $SCRIPTDIR | sed -n "/#2.)/,/#3.)/p")"
 
-#Then, handle config files.
+#Handle config files.
 $HOME/Scripts/stowConfigs.sh $(dirname $SCRIPTDIR)
+
+#Ensure your username still exists in .Xresources for i3
+if [ -z "$(cat $HOME/.Xresources | grep username:\ $(whoami))" ]
+then
+    echo "username: $(whoami)" >>$HOME/.Xresources
+fi
