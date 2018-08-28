@@ -47,9 +47,11 @@ This is an alternate branch with slightly different default configs built specif
 
 ## Known Issues
 - Generally speaking, this is **almost finished, but not quite ready.**
+- LXAppearance is not symlink friendly. Stowed configs will be used as defaults, but once you make a change inside LXAppearance, any symlink will become a copy instead.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 - There's no cheat sheet for controls/custom functions.
 - These docs only really cover the installation process.
+- That lock screen sucks.
 
 ## How does that super dandy single command installation work?
 After installing the **Manjaro i3 Community Edition**, which provides all our base prerequisites, we run our "main" script, **postInstall.sh** as a **non-root** user by downloading it straight from GitHub's raw files (`wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh`) as a single file (`-O`) dumped right to the standard output (`-`), which is then immediately read and invoked by your shell (`sh -c "$(wget...)"`,) where the `"$(...)""` indicates a command substitution. In this case, the command being substituted in is our entire script! Ain't that dandy? This script runs in 4 phases:
