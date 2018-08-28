@@ -29,3 +29,5 @@ URxvt*skipBuiltinGlyphs:          true
 
 URxvt*jumpScroll:                 true
 URxvt*skipScroll:                 false
+
+!! OTHER
