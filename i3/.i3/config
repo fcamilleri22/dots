@@ -226,7 +226,6 @@ bindsym $mod+d exec rofi \
 # Config file updates
 exec --no-startup-id ~/Scripts/setPolybarNetworkInterfaces.sh
 exec_always --no-startup-id sudo -u $username ~/Scripts/setcursor.sh
-exec_always --no-startup-id sudo -u $username ~/Scripts/stowConfigs.sh
 
 # Userland applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
