@@ -18,7 +18,7 @@ URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 URxvt.depth:                      32
 URxvt*scrollBar:                  false
 URxvt*cursorBlink:                true
-URxvt*saveLines:                  5000
+URxvt*saveLines:                  10000
 URxvt*url-launcher:               firefox-developer-edition
 
 URxvt.secondaryScreen:            true
@@ -29,5 +29,10 @@ URxvt*skipBuiltinGlyphs:          true
 
 URxvt*jumpScroll:                 true
 URxvt*skipScroll:                 false
+
+URxvt*scrollTtyOutput:            false
+URxvt*scrollWithBuffer:           true
+URxvt*scrollTtyKeypress:          true
+
 
 !! OTHER
