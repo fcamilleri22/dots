@@ -15,3 +15,5 @@
       "highlight-selectedDecorationsZIndex": 0
       pigments: true
       pigmentsDecorationsZIndex: 0
+  welcome:
+    showOnStartup: false
