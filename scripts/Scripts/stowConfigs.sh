@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #Clear out prebaked configs to prevent stow conflicts, then stow repo config.
-#NOTE: This needs to be rerun every time the dots repo is updated.
+
 DOTDIR=$1
 
 [ -z "$DOTDIR" ] && DOTDIR=$HOME/Projects/dots

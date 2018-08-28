@@ -17,6 +17,9 @@ font pango:Ubuntu 12
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
+#get username from ~/.Xresources
+set_from_resource $username username
+
 #get colors from ~/.Xresources
 #foreground
 set_from_resource $fg color15
@@ -143,6 +146,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+
+
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -172,6 +177,9 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# Lock screen
+bindsym $mod+9 exec --no-startup-id blurlock
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -215,25 +223,25 @@ bindsym $mod+d exec rofi \
 # Autostart Applications
 ################################################################################
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+# Config file updates
+exec --no-startup-id ~/Scripts/setPolybarNetworkInterfaces.sh
+exec_always --no-startup-id sudo -u $username ~/Scripts/setcursor.sh
+exec_always --no-startup-id sudo -u $username ~/Scripts/stowConfigs.sh
 
-# Autostart applications
+# Userland applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/Scripts/rotateWallpapers.sh &
-exec --no-startup-id ~/Scripts/setPolybarNetworkInterfaces.sh
 exec --no-startup-id sleep 1; compton -b
 exec --no-startup-id polybar main
 
+# Polybar applets
 exec --no-startup-id nm-applet
 exec --no-startup-id pa-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 
+# Lock Screen
 exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id ~/Scripts/setcursor.sh
-# exec_always --no-startup-id ~/Scripts/stowConfigs.sh
 
 ################################################################################
 # Specific Application settings

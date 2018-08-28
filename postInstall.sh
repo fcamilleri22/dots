@@ -24,7 +24,7 @@ then
     exit 1
 fi
 
-#Get best Pacman Mirrors
+#Get 'best' Pacman Mirrors
 while true; do
     read -p "Are you in North America? [y/n]" answer
     case $answer in
@@ -104,8 +104,8 @@ sudo pacman -S --noconfirm                                                      
 yaourt -Syy --noconfirm
 
 #Then, install from the User Repository...
-#NOTE: rxvt-unicode-better-blah-blah causes a conflict with preinstalled
-# rxvt-unicode.
+#NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
+# preinstalled rxvt-unicode. Shifted install to the end.
 yaourt -S --noconfirm                                                           \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
@@ -114,8 +114,8 @@ yaourt -S --noconfirm                                                           
 
 #Then, packages for the atom editor
 #We can paralellize a few things from here on in to make things faster
-$(
-apm install                                                                     \                                                \
+(
+apm install                                                                     \
     pigments                                                                    \
     minimap                                                                     \
     minimap-pigments                                                            \
@@ -127,7 +127,7 @@ apm install                                                                     
 #npm install -g...
 
 #And pip packages too!
-$(
+(
 sudo pip install --upgrade pip
 sudo pip install                                                                \
     colorz                                                                      \
@@ -152,8 +152,11 @@ git clone -b $BRANCH https://github.com/fcamilleri22/dots.git $DOTDIR
 stow --dir=$DOTDIR/ --target=$HOME/ scripts
 chmod -R +x $HOME/Scripts/*
 
-#Then handle the other stows.
-$HOME/Scripts/stowConfigs.sh $DOTDIR
+#Then, run stowConfigs to handle all other config files.
+$HOME/Scripts/stowConfigs.sh
+
+#Lastly, leave the username of whoever's using this installer in .Xresources for i3
+echo "username: $(whoami)" >>$HOME/.Xresources
 
 ################################################################################
 #4.) Initialize other packages, take care of things that require user intervention
