@@ -4,6 +4,12 @@
 DOTDIR=$1
 [ -z "$DOTDIR" ] && DOTDIR=$HOME/Projects/dots
 
+if [ $UID -eq 0 ] || [ $UID -eq 99 ]
+then
+    echo "ERROR: This script should be invoked by the primary user, and definitely not root. Exiting."
+    exit 1
+fi
+
 swapAndStow () {
     PKG=$1
     shift
