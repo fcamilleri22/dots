@@ -281,6 +281,7 @@ for_window [class="Xfburn"] floating enable
 
 # Frank's
 for_window [class="Pcmanfm"] floating enable, resize set 800 600, move position mouse
+for_window [class="Xarchiver"] floating enable, resize set 800 600, move position mouse
 for_window [class="Pavucontrol"] floating enable, resize set 640 480
 
 ################################################################################
