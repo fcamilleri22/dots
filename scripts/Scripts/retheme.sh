@@ -21,4 +21,9 @@ cp \
     $HOME/.cache/wal/colors-dunst \
     $HOME/.config/dunst/dunstrc
 
+cp \
+    $HOME/.cache/wal/colors-i3lock-color \
+    $HOME/Scripts/lockscreen.sh
+chmod +x $HOME/Scripts/lockscreen.sh
+
 echo "Some programs may need to be restarted for changes to take effect."
