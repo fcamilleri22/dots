@@ -98,10 +98,8 @@ sudo pacman -Syyu --noconfirm --needed                                          
     pavucontrol                                                                 \
     pa-applet
 
-#After pacman is finished, we can take care of any other package managers
-#in parallel
-
-#Then, packages for the atom editor
+#After pacman is finished, take care of other package managers in parallel.
+#Atom Editor
 (
 apm install                                                                     \
     pigments                                                                    \
@@ -111,10 +109,8 @@ apm install                                                                     
     language-ini                                                                \
     language-terraform
 ) &
-#Then, npm packages
-#npm install -g...
 
-#And pip packages too!
+#Python
 (
 sudo pip install --upgrade pip
 sudo pip install                                                                \
@@ -123,9 +119,8 @@ sudo pip install                                                                
     colorthief
 ) &
 
-#Then, install from the User Repository...
-#NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
-# preinstalled rxvt-unicode. Shifted install to the end.
+#Arch User Repository
+#NOTE: any packages that cause conflicts are handled in another call at the end.
 yay -Syua --noconfirm --needed                                                  \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
