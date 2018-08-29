@@ -178,9 +178,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
-
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -219,6 +216,10 @@ bindsym $mod+d exec rofi \
     -font Ubuntu\ 12 \
     -show run
 
+# Lock Screen
+exec --no-startup-id xautolock -time 10 -locker ~/Scripts/lockscreen.sh
+bindsym $mod+9 exec --no-startup-id ~/Scripts/lockscreen.sh
+
 ################################################################################
 # Autostart Applications
 ################################################################################
@@ -238,9 +239,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pa-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
-
-# Lock Screen
-exec --no-startup-id xautolock -time 10 -locker blurlock
 
 ################################################################################
 # Specific Application settings
