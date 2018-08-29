@@ -41,7 +41,8 @@ while true; do
             break
             ;;
         *)
-        echo "Please answer y or n."
+            echo "Please answer y or n."
+            ;;
     esac
 done
 
@@ -71,7 +72,7 @@ sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 #Install from official repositories...
 sudo pacman -Syyu --noconfirm --needed                                          \
     base-devel                                                                  \
-    yaourt                                                                      \
+    yay                                                                         \
     bind-tools                                                                  \
     zsh                                                                         \
     stow                                                                        \
@@ -125,7 +126,7 @@ sudo pip install                                                                
 #Then, install from the User Repository...
 #NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
 # preinstalled rxvt-unicode. Shifted install to the end.
-yaourt -Syua --noconfirm --needed                                               \
+yay -Syua --noconfirm --needed                                                  \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
     nerd-fonts-fira-code                                                        \
@@ -196,7 +197,7 @@ mysql_secure_installation
 
 #Conflicts with regular rxvt-unicode, needs user intervention.
 #Using --noconfirm here will autofail this section!
-yaourt -S rxvt-unicode-better-wheel-scrolling-unicode3
+yay -S rxvt-unicode-better-wheel-scrolling-unicode3
 
 echo "All done!!!"
 echo -n "Rebooting in 5 seconds. Ctrl-C to cancel..."
