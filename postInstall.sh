@@ -195,9 +195,9 @@ sudo mysql_install_db                                                           
 sudo systemctl start mysqld
 mysql_secure_installation
 
-#Conflicts with regular rxvt-unicode, needs user intervention.
+#Install packages that conflict with base installation
 #Using --noconfirm here will autofail this section!
-yay -S rxvt-unicode-better-wheel-scrolling-unicode3
+yay -S rxvt-unicode-better-wheel-scrolling-unicode3 i3lock-color
 
 echo "All done!!!"
 echo -n "Rebooting in 5 seconds. Ctrl-C to cancel..."
