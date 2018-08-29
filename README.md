@@ -70,7 +70,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 #### From the official Manjaro Repositories:
 
 - `base-devel`: prereq for Yaourt -- essentially a C/C++ toolchain.
-- `yaourt`: a secondary package manager for Arch Linux User Repository (AUR) packages.
+- `yay`: a secondary package manager for Arch Linux User Repository (AUR) packages. A `yaourt` remake, to be specific. (**y**et **a**nother **y**ogurt)
 - `bind-tools`: dns tools such as 'dig' and 'host.'
 - `zsh`: a standards-compliant alternate bash-like shell with nice plugins.
 - `stow`: a tool for managing bundles of symlinks. This enables us to link my custom configs to their programs and update them more easily.
