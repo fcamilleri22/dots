@@ -20,7 +20,7 @@
 
 ## Primary Features
 - Tiling Window Manager **(i3)**
-- Any non-default configuration file is **source controlled** using `git` and `stow`.
+- Any non-default configuration file is **source controlled** using `git` and `stow`. Thus, to update this setup, all one needs to do is pull, which updates all included configuration files and run an included script that installs any new packages.
 - All interface theming is handled by an original set of `wal` and `oomox` powered scripts so that **all UI retheming can be handled in a single command, always with perfect color coordination, either according to a builtin theme, or an input image.**
 - With the above being said, Firefox, in this environment, is set up to ignore all system themes when rendering pages so that any pages displayed are shown exactly as the author intended. **No more unreadable textboxes in your browser while using dark themes!**
 - Simple, single command setup (assuming you know how to use Manjaro/i3 in the first place.)
