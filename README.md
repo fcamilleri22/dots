@@ -1,5 +1,5 @@
 # Frank's Personal Work Environment
-
+Psst... looking for the user manual/cheatsheet? It's right [here.](CHEATS.md)
 ## What is this?
 `dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
 
