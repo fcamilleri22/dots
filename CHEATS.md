@@ -29,7 +29,7 @@
 All wallpapering is handled by `nitrogen.` By default, the wallpaper changes every 10 minutes to any random image in the folder `~/Pictures/Wallpapers`, which is created during the install script. To change this behavior, edit `~/Scripts/rotateWallpapers.sh`
 
 
-`retheme-by-builtin [THEMENAME]` changes interface colors according to the themes that come packaged with `pywal`. Invoking this without an argument will return all possible themes. My personal favorites are `base16-gruvbox-hard`, `sexy-neon` (the default), `base16-outrun`, and `base16-black-metal-venom`.
+`retheme-by-theme [THEMENAME]` changes interface colors according to the themes that come packaged with `pywal`. Invoking this without an argument will return all possible themes. My personal favorites are `base16-gruvbox-hard`, `sexy-neon` (the default), `base16-outrun`, and `base16-black-metal-venom`.
 
 
 `retheme-by-image{0-4} [IMAGELOCATION]` changes interface colors according to the dominant color palette of an input image. `retheme-by-image0` uses the default `wal` backend to determine this palette, and the other invocations use different backends, which yield different palettes. **Changing the theme according to a wallpaper slideshow is NOT recommended because the generated themes are not always comfortably readable, and because many applications require a restart for theme changes to fully take effect.**
