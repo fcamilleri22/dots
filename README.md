@@ -47,7 +47,7 @@ This is an alternate branch with slightly different default configs built specif
 
 ## Known Issues
 - Generally speaking, this is **always going to be a work in progress.** I'll do my best to only merge in completed, separate feature branches, but small fixes will be added directly to master from time to time.
-- LXAppearance is not symlink friendly. Stowed configs will be used as defaults, but once you make a change inside LXAppearance, any GTK-related symlink will become a copy instead. Copy these back into the `dots` directory if you make a change using LXAppearance.
+- `LXAppearance` is not symlink friendly. Stowed configs will be used as defaults, but once you make a change inside `LXAppearance`, any GTK-related symlink will become a copy instead. Copy these back into the `dots` directory if you make a change using `LXAppearance`.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 
 ## Roadmap of Upcoming Changes (in priority order)
