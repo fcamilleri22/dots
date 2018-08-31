@@ -58,7 +58,7 @@ WRONG_COLOR='#FF0000C0'
     --datecolor=$TEXT_COLOR                 \
     --datepos="ix:ty+$SUBSIZE"              \
     --datestr="Enter password to unlock..." \
-    --date-font=ubuntu                      \
+    --date-font=ubuntu:light                 \
     --datesize=$SUBSIZE                     \
     --date-align=1                          \
 \
