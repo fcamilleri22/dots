@@ -55,17 +55,19 @@
 
 ## What's Handling What, Where
 **Top Bar:**
-Polybar | dots/polybar/.config/polybar/config
+`polybar` | dots/polybar/.config/polybar/config
 
-**Window Manager, Desktop Hotkeys, Userland Autostart:** i3 | dots/i3/.i3/config
+**Window Manager, Desktop Hotkeys, Userland Autostart:** `i3` | dots/i3/.i3/config
 
-**Notifications:** dunst | dots/wal/templates/colors-dunst
+**Notifications:** `dunst` | dots/wal/templates/colors-dunst
 
-**Launcher:** rofi | dots/wal/templates/colors-rofi
+**Launcher:** `rofi` | dots/wal/templates/colors-rofi
 
-**Terminal:** urxvt | dots/shell/.Xresources
+**Terminal:** `urxvt` | dots/shell/.Xresources
 
-**Shell:** zsh | dots/shell/[.zshrc, .profile]
+**Shell:** `zsh` | dots/shell/[.zshrc, .profile]
+
+**Monitors/Kernels/GPU Drivers:** Invoke `mhwd-tui` in a terminal.
 
 **Atom Theme:** dots/atom/.atom, colors handled in dots/wal/.config/wal/templates
 
