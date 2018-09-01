@@ -19,8 +19,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `bind-tools`: useful dns tools such as 'dig' and 'host.'
 - `zsh`: a standards-compliant alternate bash-like shell with nice plugins.
 - `stow`: a tool for managing bundles of symlinks. This enables us to link my custom configs to their programs and update them more easily.
-- `gucharmap`: GUI Character map, useful for working with fonts with icons and
- non-standard Unicode icons.
+- `gucharmap`: GUI Character map, useful for working with fonts that include icons.
 - `mariadb`: a MySQL-compatible server for MySQL development.
 - `mysql-workbench`: a (honestly quite bad, someone please suggest a replacement) GUI for MySQL.
 - `nodejs`, `npm`: runtime and package management for NodeJS development (I'm experimenting with trying to not use `nvm` -- this is probably temporary)
@@ -45,7 +44,8 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
 - `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
 - `rxvt-unicode-better-wheel-scrolling-unicode3`: a patched version of the popular terminal "urxvt" that allows for glyphs and mouse scrolling.
-- `la-capitaine` cursors and icon themes: a wonderful set of colorful icons and cursors that go well with pretty much any ui colorscheme you can think of.
+- `la-capitaine` cursors and icon themes: an absolutely wonderful set of colorful icons and cursors that go well with pretty much any ui colorscheme you can think of.
+- `i3lock-color`: a modified version of `i3lock` that allows for more customization.
 
 #### Also, a few Python, Node.js, and Atom Editor packages and plugins.
 
