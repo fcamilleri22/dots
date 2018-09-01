@@ -57,7 +57,7 @@ This is an alternate branch with slightly different default configs built specif
 2. Weather Widget
 3. Improve Firefox theme handling, automatically handle extensions
 4. Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
-5. `updateDots.sh` optimizations.
+5. `updateDots` optimizations.
 6. Switch Base to either straight Arch Linux or Manjaro-Architect.
 7. Prettier bootup process.
 8. Multiple (human) user login setups.
