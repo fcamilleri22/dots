@@ -94,6 +94,7 @@ sudo pacman -Syyu --noconfirm --needed                                          
     jsoncpp                                                                     \
     libmpdclient                                                                \
     python-pip                                                                  \
+    python-pillow                                                               \
     manjaro-pulse                                                               \
     pavucontrol                                                                 \
     pa-applet
