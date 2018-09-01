@@ -167,7 +167,7 @@ echo 'user_pref("widget.content.gtk-theme-override", "Adwaita:light");'         
     >>$HOME/.mozilla/firefox/$FFPREFSDIR/prefs.js
 
 #run a default theme for next reboot
-$HOME/Scripts/PATHed/retheme-by-builtin sexy-neon
+$HOME/Scripts/PATHed/retheme-by-theme sexy-neon
 
 #Change Shell
 chsh $(whoami) -s /usr/bin/zsh
