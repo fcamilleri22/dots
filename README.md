@@ -22,8 +22,8 @@ Wondering about how this works, what's in it, and other "frequently asked" quest
 
 ## Primary Features
 - Tiling Window Manager **(i3)**
-- Any non-default configuration file is **source controlled** using `git` and `stow`. Thus, to update this setup, all one needs to do is pull, which updates all included configuration files and run an included script that installs any new packages.
-- All interface theming is handled by an original set of `wal` and `oomox` powered scripts so that **all UI retheming can be handled in a single command, always with perfect color coordination, either according to a builtin theme, or an input image.**
+- Any non-default configuration file is **source controlled** using `git` and `stow`. Thus, to update this setup, all one needs to do is pull, which updates all included configuration files and run an included script (`updateDots`) that installs any new packages.
+- All interface theming is handled by an original set of `wal` and `oomox` powered scripts so that **all UI retheming can be handled in a single command, always with perfect color coordination, either according to a builtin theme, or an input image.** (`retheme-by-theme` and `retheme-by-image`)
 - With the above being said, Firefox, in this environment, is set up to ignore all system themes when rendering pages so that any pages displayed are shown exactly as the author intended. **No more unreadable textboxes in your browser while using dark themes!**
 - Simple, single command setup (assuming you know how to use Manjaro/i3 in the first place.)
 
@@ -54,11 +54,13 @@ This is an alternate branch with slightly different default configs built specif
 
 ## Roadmap of Upcoming Changes (in priority order)
 1. Better WebDev tools/configurations, such as linters and other utilities.
-2. Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
-3. `updateDots.sh` optimizations.
-4. Switch Base to either straight Arch Linux or Manjaro-Architect.
-5. Prettier bootup process.
-6. Multiple (human) user login setups.
+2. Weather Widget
+3. Improve Firefox theme handling, automatically handle extensions
+4. Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
+5. `updateDots.sh` optimizations.
+6. Switch Base to either straight Arch Linux or Manjaro-Architect.
+7. Prettier bootup process.
+8. Multiple (human) user login setups.
 
 
 
