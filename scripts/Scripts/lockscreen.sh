@@ -1,4 +1,6 @@
 #!/bin/sh
+#Note: depends on WALLPAPERDIR from ~/.profile
+
 ##Solve for font sizes as proportional to vertical resolution
 VRES=$(xdpyinfo | grep dimensions | cut -d " " -f 7 | cut -d "x" -f 1)
 TITLESIZE=$((VRES/40))
@@ -12,7 +14,6 @@ INDICATOR_DELTA=$BARWIDTH
 
 ##Get a random wallpaper to use as a lock screen
 ##Blur takes too long and aint ever blurry enough.
-WALLPAPERDIR=$HOME/Pictures/Wallpapers
 WALLPAPER=$WALLPAPERDIR/"$(ls $WALLPAPERDIR | shuf | head -n 1)"
 
 ##Get enough dominant colors from wallpaper for indicators
