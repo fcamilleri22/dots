@@ -1,5 +1,6 @@
 # Frank's Personal Work Environment
 Psst... looking for the user manual/cheatsheet? It's right [here.](CHEATS.md)
+Wondering about how this works, what's in it, and other "frequently asked" questions? Right [here.](FAQ.md)
 ## What is this?
 `dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
 
@@ -47,7 +48,7 @@ This is an alternate branch with slightly different default configs built specif
 
 ## Known Issues
 - Generally speaking, this is **always going to be a work in progress.** I'll do my best to only merge in completed, separate feature branches, but small fixes will be added directly to master from time to time.
-- `LXAppearance` is not symlink friendly. Stowed configs will be used as defaults, but once you make a change inside `LXAppearance`, any GTK-related symlink will become a copy instead. Copy these back into the `dots` directory if you make a change using `LXAppearance`.
+- `LXAppearance` is not symlink friendly. A wrapper, `dots-lxappearance` is included and PATHed. Use that instead to keep gtk symlinks intact. You shouldn't really need to use it anyway, as the retheme-by-... commands should handle everything.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 
 ## Roadmap of Upcoming Changes (in priority order)
@@ -60,62 +61,6 @@ This is an alternate branch with slightly different default configs built specif
 
 
 
-## How does that super dandy single command installation work?
-After installing the **Manjaro i3 Community Edition**, which provides all our base prerequisites, we run our "main" script, **postInstall.sh** as a **non-root** user by downloading it straight from GitHub's raw files (`wget https://raw.githubusercontent.com/fcamilleri22/dots/master/postInstall.sh`) as a single file (`-O`) dumped right to the standard output (`-`), which is then immediately read and invoked by your shell (`sh -c "$(wget...)"`,) where the `"$(...)""` indicates a command substitution. In this case, the command being substituted in is our entire script! Ain't that dandy? This script runs in 4 phases:
-
-1. **Ensure we're not running as root, and prepare system level configurations.** Namely, we make sure we're grabbing system software from the closest mirror possible (omitting known slow ones) and making some configuration changes to `pacman` and `nano`, the Arch Linux system package manager, and a dandy terminal text editor, respectively. Why not as root? We want to let the script control permissions on its own as needed, in case any of its parts need to call some third party code, such as when `yay,` the AUR package manager, needs to run a PKGBUILD.
-
-2. **Install software from repositories.** First, we get any system software from the Manjaro repositories and the AUR, then we get other packages from other package managers, such as Atom plugins for atom, some nodejs cli utilities from npm, and any others.
-
-3. **Create Projects Directory, clone `dots` repository, and swap in my config files.** I keep all git repositories that I'm actively contributing to inside `~/Projects/`, including this repository. In this phase, I make said directory, clone this entire repository to that directory. Lastly, using `stow`, a GNU symlink manager, I remove any configuration file I have a replacement for in the repository, and replace them with symlinks to configuration files contained within `dots`. This enables me to quickly commit any changes I may make to those configurations in the future, since they are all available in one central location
-
-4. **Initialize software that needs initial setup, and configure remaining loose ends** In this last section, we initialize anything that needs initialization, including our `mariadb` instance, and we perform any small one off configurations that don't warrant dotfiles, such a small firefox theme fix, setting a default theme and wallpaper, and changing the shell to `zsh`, my preferred default terminal shell. Also, any other installations that require user intervention are pushed to this section.
-
-
-## What exactly am I installing during this process. Why?
-
-#### From the official Manjaro Repositories:
-
-- `yay`: an alternative to `pacman`
-- `bind-tools`: useful dns tools such as 'dig' and 'host.'
-- `zsh`: a standards-compliant alternate bash-like shell with nice plugins.
-- `stow`: a tool for managing bundles of symlinks. This enables us to link my custom configs to their programs and update them more easily.
-- `gucharmap`: GUI Character map, useful for working with fonts with icons and
- non-standard Unicode icons.
-- `mariadb`: a MySQL-compatible server for MySQL development.
-- `mysql-workbench`: a (honestly quite bad, someone please suggest a replacement) GUI for MySQL.
-- `nodejs`, `npm`: runtime and package management for NodeJS development (I'm experimenting with trying to not use `nvm` -- this is probably temporary)
-- `atom`, `apm`: Modern text editor developed by GitHub similar to Notepad++ or Sublime text and its associated package (plugin) manager.
-- `git`: Everyone's favorite source control!
-- `firefox-developer-edition`: fast web browser with great dev tools.
-- `python-pywal`: script used for facilitating custom UI theme creation.
-- `polybar`: the "taskbar" that occupies the top of the screen and supplies useful information.
-- `rofi`: a minimalist application launcher, similar to dmenu.
-- `terraform`: an infrastructure-as-code tool compatible with all major cloud services providers (AWS, Digital Ocean, etc.)
-- `nerd-fonts-terminus`: font I use in live terminals, patched with emojis and icons.
-- `ttf-ubuntu-font-family`: systemwide default sans-serif fonts. They're pretty.
-- `libmpdclient` and `jsoncpp` are prerequisites of certain Polybar plugins.
-- `manjaro-pulse, pa-applet, pavucontrol` are for audio support and control.
-
-
-
-#### From the Arch User Repository (AUR):
-
-- `smartgit`: a really good Git GUI. Requires paid license, but can be used for free. Please send these people your money. They deserve it.
-- `oh-my-zsh-git`: plugin manager for zsh, from github.com/robbyrussell/oh-my-zsh.
-- `nerd-fonts-fira-code`: AKA 'Fura Code' - font I use in editors/other code not inside live terminals. Includes emojis and icons, as well as programming ligatures.
-- `oomox`: a sexual act performed among consenting Ferengi. Also, a GTK theme generator that works wonderfully in conjunction with python-pywal in order to make sure that our UI stays uniformly themed.
-- `rxvt-unicode-better-wheel-scrolling-unicode3`: a patched version of the popular terminal "urxvt" that allows for glyphs and mouse scrolling.
-- `la-capitaine` cursors and icon themes: a wonderful set of colorful icons and cursors that go well with pretty much any ui colorscheme you can think of.
-
-
-
-## My machine has 3 different network interfaces and 3 monitors - why doesn't this work/why does this look weird?
-Because this isn't for that. As stated above, these are my configuration files for me to get my work done. I do not work on multi-monitor setups, and thus won't dedicate time to fixing any issues there unless I start working on multi-monitor setups, and the machines I work with have, at most, a wired and wireless interface, and no more than that. If I am working on a machine with more than that, it's a server and I'm not running this on servers.
-## I want to improve on this. How?
-Please create issues and/or write pull requests! Any merges will ultimately be up to me, but if it follows the manifesto at the beginning of this doc, I should be down.
-## I want to use this, but I want to make and maintain little tweaks of it for myself. How?
-Fork this, and do it big! If you do anything really cool though, please share it as a possible pull request.
 
 ## Special Thanks
 I'd like to thank all the Manjaro/Arch Linux maintainers out there, especially [Bernhard Landauer](https://github.com/oberon-manjaro), aka "oberon", the primary maintainer of the Manjaro i3 Community Edition.
