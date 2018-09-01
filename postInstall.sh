@@ -41,7 +41,8 @@ while true; do
             break
             ;;
         *)
-        echo "Please answer y or n."
+            echo "Please answer y or n."
+            ;;
     esac
 done
 
@@ -71,7 +72,7 @@ sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 #Install from official repositories...
 sudo pacman -Syyu --noconfirm --needed                                          \
     base-devel                                                                  \
-    yaourt                                                                      \
+    yay                                                                         \
     bind-tools                                                                  \
     zsh                                                                         \
     stow                                                                        \
@@ -97,10 +98,8 @@ sudo pacman -Syyu --noconfirm --needed                                          
     pavucontrol                                                                 \
     pa-applet
 
-#After pacman is finished, we can take care of any other package managers
-#in parallel
-
-#Then, packages for the atom editor
+#After pacman is finished, take care of other package managers in parallel.
+#Atom Editor
 (
 apm install                                                                     \
     pigments                                                                    \
@@ -110,10 +109,8 @@ apm install                                                                     
     language-ini                                                                \
     language-terraform
 ) &
-#Then, npm packages
-#npm install -g...
 
-#And pip packages too!
+#Python
 (
 sudo pip install --upgrade pip
 sudo pip install                                                                \
@@ -122,10 +119,9 @@ sudo pip install                                                                
     colorthief
 ) &
 
-#Then, install from the User Repository...
-#NOTE: rxvt-unicode-better-wheel-scrolling-unicode3 causes a conflict with
-# preinstalled rxvt-unicode. Shifted install to the end.
-yaourt -Syua --noconfirm --needed                                               \
+#Arch User Repository
+#NOTE: any packages that cause conflicts are handled in another call at the end.
+yay -Syua --noconfirm --needed                                                  \
     smartgit                                                                    \
     oh-my-zsh-git                                                               \
     nerd-fonts-fira-code                                                        \
@@ -194,9 +190,9 @@ sudo mysql_install_db                                                           
 sudo systemctl start mysqld
 mysql_secure_installation
 
-#Conflicts with regular rxvt-unicode, needs user intervention.
+#Install packages that conflict with base installation
 #Using --noconfirm here will autofail this section!
-yaourt -S rxvt-unicode-better-wheel-scrolling-unicode3
+yay -S rxvt-unicode-better-wheel-scrolling-unicode3 i3lock-color
 
 echo "All done!!!"
 echo -n "Rebooting in 5 seconds. Ctrl-C to cancel..."

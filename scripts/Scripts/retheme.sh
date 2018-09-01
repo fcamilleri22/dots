@@ -11,14 +11,25 @@ wal -g -a 85 --saturate 0.9 -n $@
 #don't continue if error in wal
 [ $? -ne 0 ] && exit 1
 
+WALCACHE=$HOME/.cache/wal
 #Atom Theme
 cp \
-    $HOME/.cache/wal/colors-atom-syntax \
+    $WALCACHE/colors-atom-syntax \
     $HOME/.atom/packages/frank-syntax/styles/colors.less
+
+cp \
+    $WALCACHE/colors-atom-styles.less \
+    $HOME/.atom/styles.less
 
 #Dunst (notification daemon) Theme
 cp \
-    $HOME/.cache/wal/colors-dunst \
+    $WALCACHE/colors-dunst \
     $HOME/.config/dunst/dunstrc
+
+#i3lock
+cp \
+    $WALCACHE/colors-i3lock-color \
+    $HOME/Scripts/lockscreen.sh
+chmod +x $HOME/Scripts/lockscreen.sh
 
 echo "Some programs may need to be restarted for changes to take effect."

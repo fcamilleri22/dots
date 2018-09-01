@@ -12,3 +12,4 @@ export BROWSER=/usr/bin/firefox-developer-edition
 export EDITOR=/usr/bin/nano
 
 export PATH="$PATH:$HOME/Scripts/PATHed"
+export WALLPAPERDIR="$HOME/Pictures/Wallpapers"
