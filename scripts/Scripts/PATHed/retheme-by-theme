@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ################################################################################
 #Author: Frank Camilleri (http://deployfrank.sh)
 #TL;DR: a wrapper of the retheme.sh wrapper with default args. For builtin themes.

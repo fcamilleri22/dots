@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #Note: depends on WALLPAPERDIR from ~/.profile
 
 ##Solve for font sizes as proportional to vertical resolution

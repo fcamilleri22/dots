@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ################################################################################
 #Author: Frank Camilleri (http://deployfrank.sh)
 #TL;DR: rotates wallpapers from a predefined directory

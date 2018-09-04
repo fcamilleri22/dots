@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 DIR=$HOME/Scripts
 CFG=$HOME/.config/polybar/config
 WIFI=$($DIR/getWifiInterfaceName.sh)
