@@ -3,6 +3,8 @@
 lxappearance
 sleep 1
 
+$HOME/Scripts/setcursor.sh
+
 cp $HOME/.gtkrc-2.0 \
     $HOME/Projects/dots/gtk/.gtkrc-2.0
 
