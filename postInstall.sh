@@ -162,8 +162,14 @@ echo "username: $(whoami)" >>$HOME/.Xresources
 $HOME/Scripts/setPolybarNetworkInterfaces.sh
 
 #Ensure all cursors are updated according to stowed configs for first run
+touch $HOME/.gtkrc-2.0
 $HOME/Scripts/setcursor.sh
 
+#Set firefox as default browser, create default configs.
+firefox-developer-edition --headless --setDefaultBrowser &
+ffpid=$!
+sleep 1
+kill $ffpid
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
 
