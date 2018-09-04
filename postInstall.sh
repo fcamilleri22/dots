@@ -188,7 +188,7 @@ WALL=pawel-nolbert-291146-unsplash.jpg
 
 mkdir $WALLDIR
 cp $DOTDIR/$WALL $WALLDIR
-nitrogen --set-centered $WALLDIR/$WALL
+nitrogen --set-zoom-fill $WALLDIR/$WALL
 
 ##Leave things that require user intervention for the very end
 #Set up MariaDB (see the ArchWiki for more info)
