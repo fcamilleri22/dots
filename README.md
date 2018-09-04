@@ -6,6 +6,8 @@
 
 ["FAQ"](FAQ.md)
 
+[Screenshots](screens.md)
+
 ## Design Goals
 1. **Keep all internals as simple as possible**, where simple is defined by the Arch Linux principle "without unnecessary additions or modifications." Only the minimal number of packages needed to get my work done should be included in these scripts. Anything else can potentially introduce external variables that I may not be aware of during my work that may cause bugs and/or waste time.
 
