@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ################################################################################
 #Author: Frank Camilleri (http://deployfrank.sh)
 #TL;DR: rotates wallpapers from a predefined directory
@@ -9,6 +9,6 @@
 
 while true
 do
-    nitrogen --set-centered --random $WALLPAPERDIR
+    nitrogen --set-zoom-fill --random $WALLPAPERDIR
     sleep 10m
 done

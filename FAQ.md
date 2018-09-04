@@ -27,6 +27,7 @@ After installing the **Manjaro i3 Community Edition**, which provides all our ba
 - `git`: Everyone's favorite source control!
 - `firefox-developer-edition`: fast web browser with great dev tools.
 - `python-pywal`: script used for facilitating custom UI theme creation.
+- `python-pillow`: a prereq for oomox/wal. oomox doesn't like installing sometimes without it first.
 - `polybar`: the "taskbar" that occupies the top of the screen and supplies useful information.
 - `rofi`: a minimalist application launcher, similar to dmenu.
 - `terraform`: an infrastructure-as-code tool compatible with all major cloud services providers (AWS, Digital Ocean, etc.)

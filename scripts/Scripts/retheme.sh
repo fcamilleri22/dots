@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ################################################################################
 #Author: Frank Camilleri (http://deployfrank.sh)
 #TL;DR: a wrapper for pywal to simplify retheming.

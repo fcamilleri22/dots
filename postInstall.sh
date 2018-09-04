@@ -94,6 +94,7 @@ sudo pacman -Syyu --noconfirm --needed                                          
     jsoncpp                                                                     \
     libmpdclient                                                                \
     python-pip                                                                  \
+    python-pillow                                                               \
     manjaro-pulse                                                               \
     pavucontrol                                                                 \
     pa-applet
@@ -160,6 +161,15 @@ echo "username: $(whoami)" >>$HOME/.Xresources
 #Ensure Polybar config has the correct network interface names
 $HOME/Scripts/setPolybarNetworkInterfaces.sh
 
+#Ensure all cursors are updated according to stowed configs for first run
+touch $HOME/.gtkrc-2.0
+$HOME/Scripts/setcursor.sh
+
+#Set firefox as default browser, create default configs.
+firefox-developer-edition --headless --setDefaultBrowser &
+ffpid=$!
+sleep 1
+kill $ffpid
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
 
@@ -167,7 +177,7 @@ echo 'user_pref("widget.content.gtk-theme-override", "Adwaita:light");'         
     >>$HOME/.mozilla/firefox/$FFPREFSDIR/prefs.js
 
 #run a default theme for next reboot
-$HOME/Scripts/PATHed/retheme-by-builtin sexy-neon
+$HOME/Scripts/PATHed/retheme-by-theme sexy-neon
 
 #Change Shell
 chsh $(whoami) -s /usr/bin/zsh
@@ -178,7 +188,7 @@ WALL=pawel-nolbert-291146-unsplash.jpg
 
 mkdir $WALLDIR
 cp $DOTDIR/$WALL $WALLDIR
-nitrogen --set-centered $WALLDIR/$WALL
+nitrogen --set-zoom-fill $WALLDIR/$WALL
 
 ##Leave things that require user intervention for the very end
 #Set up MariaDB (see the ArchWiki for more info)
