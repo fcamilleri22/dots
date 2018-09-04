@@ -161,6 +161,9 @@ echo "username: $(whoami)" >>$HOME/.Xresources
 #Ensure Polybar config has the correct network interface names
 $HOME/Scripts/setPolybarNetworkInterfaces.sh
 
+#Ensure all cursors are updated according to stowed configs for first run
+$HOME/Scripts/setcursor.sh
+
 #Fix Firefox Textboxes under dark themes by forcing it to think it's a light theme
 FFPREFSDIR=$(ls $HOME/.mozilla/firefox/ | grep .dev-edition-default)
 
