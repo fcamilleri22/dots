@@ -1,9 +1,10 @@
 # Frank's Personal Work Environment
-Psst... looking for the user manual/cheatsheet? It's right [here.](CHEATS.md)
-
-Wondering about how this works, what's in it, and other "frequently asked" questions? Right [here.](FAQ.md)
 ## What is this?
 `dots` is my collection of configuration files and scripts for setting up my personal software development environment/interface using a fresh **Manjaro i3 Community Edition** installation as a base.
+
+[Cheat sheet/User Manual.](CHEATS.md)
+
+["FAQ"](FAQ.md)
 
 ## Design Goals
 1. **Keep all internals as simple as possible**, where simple is defined by the Arch Linux principle "without unnecessary additions or modifications." Only the minimal number of packages needed to get my work done should be included in these scripts. Anything else can potentially introduce external variables that I may not be aware of during my work that may cause bugs and/or waste time.
@@ -50,17 +51,19 @@ This is an alternate branch with slightly different default configs built specif
 ## Known Issues
 - Generally speaking, this is **always going to be a work in progress.** I'll do my best to only merge in completed, separate feature branches, but small fixes will be added directly to master from time to time.
 - `LXAppearance` is not symlink friendly. A wrapper, `dots-lxappearance` is included and PATHed. Use that instead to keep gtk symlinks intact. You shouldn't really need to use it anyway, as the retheme-by-... commands should handle everything.
+- Cursors still aren't fully cooperating with set settings.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 
-## Roadmap of Upcoming Changes (in priority order)
+## Roadmap of Definite Upcoming Changes (in priority order)
 1. Better WebDev tools/configurations, such as linters and other utilities.
 2. Weather Widget
-3. Improve Firefox theme handling, automatically handle extensions
-4. Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
-5. `updateDots` optimizations.
-6. Switch Base to either straight Arch Linux or Manjaro-Architect.
-7. Prettier bootup process.
-8. Multiple (human) user login setups.
+3. Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
+4. `updateDots` optimizations.
+5. Improve Firefox theme handling, automatically handle extensions
+6. Improve Atom and Intellij color themes and Compton config.
+7. Switch Base to either straight Arch Linux or Manjaro-Architect.
+8. Prettier bootup process.
+9. Multiple (human) user login setups/login manager
 
 
 
