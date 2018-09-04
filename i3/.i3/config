@@ -150,8 +150,8 @@ bindsym $mod+d exec rofi \
     -show run
 
 # Lock Screen
-exec --no-startup-id xautolock -time 10 -locker ~/Scripts/lockscreen.sh
-bindsym $mod+9 exec --no-startup-id ~/Scripts/lockscreen.sh
+exec --no-startup-id xautolock -time 10 -locker ~/Scripts/franklock.sh
+bindsym $mod+9 exec --no-startup-id ~/Scripts/franklock.sh
 
 ################################################################################
 # Autostart Applications
