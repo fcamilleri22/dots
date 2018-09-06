@@ -56,6 +56,11 @@ This is an alternate branch with slightly different default configs built specif
 - Cursors still aren't fully cooperating with set settings.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 
+## Versioning Rules
+ - Versions will roughly follow [Semantic Versioning 2.0](https://semver.org/spec/v2.0.0.html) conventions, where major version increments indicate that either the base ISO used has changed, or the update procedure has become unamendably broken.
+ - Minor version number increments indicate the addition of either a complete new feature or a change that requires running `updateDots` to complete the update. **The `0.1` release denotes the initial public posting to reddit.com/r/unixporn.**
+ - Patch version number increments indicate any other public commit to `master` that definitely does not require the user to perform any action other than pulling the latest version from GitHub to make active. **The addition of these versioning rules to this documentation constitutes version 0.1.1**
+
 ## Roadmap of Definite Upcoming Changes (in priority order)
 1. Better WebDev tools/configurations, such as linters and other utilities.
 2. Weather Widget
@@ -63,7 +68,7 @@ This is an alternate branch with slightly different default configs built specif
 4. `updateDots` optimizations.
 5. Improve Firefox theme handling, automatically handle extensions
 6. Improve Atom and Intellij color themes and Compton config.
-7. Switch Base to either straight Arch Linux or Manjaro-Architect.
+7. Explore base switch to straight Arch Linux, Manjaro-Architect, or a completely new flavor entirely.
 8. Prettier bootup process.
 9. Multiple (human) user login setups/login manager
 
