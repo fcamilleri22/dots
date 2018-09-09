@@ -100,6 +100,7 @@ sudo pacman -Syyu --noconfirm --needed                                          
     pa-applet
 
 #After pacman is finished, take care of other package managers in parallel.
+
 #Atom Editor
 (
 apm install                                                                     \
@@ -117,7 +118,16 @@ apm install                                                                     
     pigments                                                                    \
 ) &
 
-#Python
+#Nodejs Packages
+#NOTE: if it's useful only in the context of working with web code,
+#it doesn't belong here -- it belongs inside of your projects package.json
+#development dependencies section. Ex: eslint, gulp, yeoman, etc.
+(
+sudo npm install -g                                                             \
+    underscore-cli                                                              \
+) &
+
+#Pip Installs [Python] Packages!
 (
 sudo pip install --upgrade pip
 sudo pip install                                                                \
