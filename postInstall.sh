@@ -81,7 +81,6 @@ sudo pacman -Syyu --noconfirm --needed                                          
     mysql-workbench                                                             \
     nodejs                                                                      \
     npm                                                                         \
-    yarn                                                                        \
     atom                                                                        \
     apm	                                                                        \
     git                                                                         \
