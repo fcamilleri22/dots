@@ -67,7 +67,7 @@ sed -i 's/-merge /-merge -I /g'     $HOME/.xinitrc
 
 ################################################################################
 #2.) Install Software from repositories
-################################################################################
+##############################################################################
 
 #Install from official repositories...
 sudo pacman -Syyu --noconfirm --needed                                          \
@@ -81,6 +81,7 @@ sudo pacman -Syyu --noconfirm --needed                                          
     mysql-workbench                                                             \
     nodejs                                                                      \
     npm                                                                         \
+    yarn                                                                        \
     atom                                                                        \
     apm	                                                                        \
     git                                                                         \
@@ -103,12 +104,18 @@ sudo pacman -Syyu --noconfirm --needed                                          
 #Atom Editor
 (
 apm install                                                                     \
-    pigments                                                                    \
-    minimap                                                                     \
-    minimap-pigments                                                            \
-    minimap-highlight-selected                                                  \
+    busy-signal                                                                 \
+    highlight-selected                                                          \
+    intentions                                                                  \
     language-ini                                                                \
-    language-terraform
+    language-terraform                                                          \
+    linter                                                                      \
+    linter-eslint                                                               \
+    linter-ui-default                                                           \
+    minimap                                                                     \
+    minimap-highlight-selected                                                  \
+    minimap-pigments                                                            \
+    pigments                                                                    \
 ) &
 
 #Python
