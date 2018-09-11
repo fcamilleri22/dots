@@ -59,7 +59,7 @@ This is an alternate branch with slightly different default configs built specif
 ## Versioning Rules
  - Versions will roughly follow [Semantic Versioning 2.0](https://semver.org/spec/v2.0.0.html) conventions, where major version increments indicate that either the base ISO used has changed, or the update procedure has become unamendably broken.
  - Minor version number increments indicate the addition of either a complete new feature or a change that requires running `updateDots` to complete the update. **The `0.1` release denotes the initial public posting to reddit.com/r/unixporn.**
- - Patch version number increments indicate any other public commit to `master` that definitely does not require the user to perform any action other than pulling the latest version from GitHub to make active. **The addition of these versioning rules to this documentation constitutes version 0.1.1**
+ - Patch version number increments indicate any other public commit to `master` that definitely does not require the user to perform any action other than pulling the latest version from GitHub to make active. **The addition of these versioning rules to this documentation constitutes version `0.1.1`**
 
 ## Roadmap of Definite Upcoming Changes (in priority order)
 1. Better WebDev tools/configurations, such as linters and other utilities.

@@ -51,7 +51,7 @@ WRONG_COLOR='#FF0000C0'
 \
     --timecolor=$TEXT_COLOR                 \
     --timepos="ix:iy+$TITLESIZE"            \
-    --timestr="%I:%M %p  -  %A, %B %d, %Y"  \
+    --timestr='%I:%M %p - %A, %B %d, %Y'    \
     --timesize=$TITLESIZE                   \
     --time-font=ubuntu                      \
     --time-align=1                          \
