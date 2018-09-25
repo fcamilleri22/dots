@@ -1,19 +1,18 @@
 // Note: do NOT commit this file unless YOU, and not a script, made changes to it.
 // It's meant to be edited via automated script whenever the theme is changed.
+@background: {color0};
+@foreground: {color15};
 
-@very-light-gray: #c5c8c6;
-@light-gray: #969896;
-@gray: #373b41;
-@dark-gray: #282a2e;
-@very-dark-gray: #1d1f21;
+@very-dark-gray: @background;
+@dark-gray: lighten(@background, 15%);
+@gray: lighten(@background, 30%);
+@light-gray: lighten(@background, 45%);
+@very-light-gray: lighten(@background, 60%);
 
 @red: {color1};
 @green: {color2};
-@light-orange: {color8};
 @orange: {color3};
+@light-orange: lighten(@orange, 15%);
 @blue: {color4};
 @purple: {color5};
 @cyan: {color6};
-
-@background: {color0};
-@foreground: {color15};
