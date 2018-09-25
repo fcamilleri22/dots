@@ -4,6 +4,7 @@
 @foreground: {color15};
 
 @very-dark-gray: @background;
+@bg-highlight-gray: lighten(@background, 5%);
 @dark-gray: lighten(@background, 15%);
 @gray: lighten(@background, 30%);
 @light-gray: lighten(@background, 45%);
@@ -11,8 +12,8 @@
 
 @red: {color1};
 @green: {color2};
-@orange: {color3};
-@light-orange: lighten(@orange, 15%);
+@light-orange: {color3};
+@orange: darken(@light-orange, 20%);
 @blue: {color4};
 @purple: {color5};
 @cyan: {color6};
