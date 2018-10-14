@@ -185,7 +185,8 @@ $HOME/Scripts/setcursor.sh
 #Install intelljPywal integration
 git clone https://github.com/Mr-SD/intellijPywal.git $HOME/Scripts/intellijPywal
 IDEACONFDIR=$(ls -a | grep .IdeaIC)
-IDEACONFDIR=$HOME/IDEACONFDIR/config
+IDEACONFDIR=$HOME/$IDEACONFDIR/config
+$HOME/Scripts/intellijPywal/intellijPywalGen.sh "$IDEACONFDIR"
 
 #Set firefox as default browser, create default configs.
 firefox-developer-edition --headless --setDefaultBrowser &
