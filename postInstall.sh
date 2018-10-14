@@ -184,7 +184,7 @@ $HOME/Scripts/setcursor.sh
 
 #Install intelljPywal integration
 git clone https://github.com/Mr-SD/intellijPywal.git $HOME/Scripts/intellijPywal
-IDEACONFDIR=$(ls -a | grep .IdeaIC)
+IDEACONFDIR=$(ls -a $HOME | grep .IdeaIC) 
 IDEACONFDIR=$HOME/$IDEACONFDIR/config
 $HOME/Scripts/intellijPywal/intellijPywalGen.sh "$IDEACONFDIR"
 

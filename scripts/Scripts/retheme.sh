@@ -29,7 +29,7 @@ cp \
 chmod +x $HOME/Scripts/lockscreen.sh
 
 #Intellj
-IDEACONFDIR=$(ls -a | grep .IdeaIC)
+IDEACONFDIR=$(ls -a $HOME | grep .IdeaIC)
 IDEACONFDIR=$HOME/$IDEACONFDIR/config
 $HOME/Scripts/intellijPywal/intellijPywalGen.sh "$IDEACONFDIR"
 
