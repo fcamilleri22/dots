@@ -17,10 +17,6 @@ cp \
     $WALCACHE/colors-atom-syntax \
     $HOME/.atom/packages/frank-syntax/styles/colors.less
 
-# cp \
-#     $WALCACHE/colors-atom-styles.less \
-#     $HOME/.atom/styles.less
-
 #Dunst (notification daemon) Theme
 cp \
     $WALCACHE/colors-dunst \
@@ -32,4 +28,9 @@ cp \
     $HOME/Scripts/lockscreen.sh
 chmod +x $HOME/Scripts/lockscreen.sh
 
-echo "Some programs may need to be restarted for changes to take effect."
+#Intellj
+IDEACONFDIR=$(ls -a | grep .IdeaIC)
+IDEACONFDIR=$HOME/$IDEACONFDIR/config
+$HOME/Scripts/intellijPywal/intellijPywalGen.sh "$IDEACONFDIR"
+
+echo "Some programs, such as Atom and Intellij, may need to be restarted for changes to take effect."
