@@ -97,7 +97,8 @@ sudo pacman -Syyu --noconfirm --needed                                          
     python-pillow                                                               \
     manjaro-pulse                                                               \
     pavucontrol                                                                 \
-    pa-applet
+    pa-applet                                                                   \
+    intellij-idea-community-edition
 
 #After pacman is finished, take care of other package managers in parallel.
 
@@ -180,6 +181,11 @@ $HOME/Scripts/setPolybarNetworkInterfaces.sh
 #Ensure all cursors are updated according to stowed configs for first run
 touch $HOME/.gtkrc-2.0
 $HOME/Scripts/setcursor.sh
+
+#Install intelljPywal integration
+git clone https://github.com/Mr-SD/intellijPywal.git $HOME/Scripts/intellijPywal
+IDEACONFDIR=$(ls -a | grep .IdeaIC)
+IDEACONFDIR=$HOME/IDEACONFDIR/config
 
 #Set firefox as default browser, create default configs.
 firefox-developer-edition --headless --setDefaultBrowser &
