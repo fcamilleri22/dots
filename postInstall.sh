@@ -97,7 +97,8 @@ sudo pacman -Syyu --noconfirm --needed                                          
     python-pillow                                                               \
     manjaro-pulse                                                               \
     pavucontrol                                                                 \
-    pa-applet
+    pa-applet                                                                   \
+    intellij-idea-community-edition
 
 #After pacman is finished, take care of other package managers in parallel.
 
