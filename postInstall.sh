@@ -112,6 +112,7 @@ apm install                                                                     
     language-terraform                                                          \
     linter                                                                      \
     linter-eslint                                                               \
+    linter-gcc                                                                  \
     linter-ui-default                                                           \
     minimap                                                                     \
     minimap-highlight-selected                                                  \
