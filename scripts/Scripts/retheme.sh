@@ -17,10 +17,6 @@ cp \
     $WALCACHE/colors-atom-syntax \
     $HOME/.atom/packages/frank-syntax/styles/colors.less
 
-cp \
-    $WALCACHE/colors-atom-styles.less \
-    $HOME/.atom/styles.less
-
 #Dunst (notification daemon) Theme
 cp \
     $WALCACHE/colors-dunst \
