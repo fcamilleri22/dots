@@ -52,8 +52,9 @@ This is an alternate branch with slightly different default configs built specif
 
 ## Known Issues
 - Generally speaking, this is **always going to be a work in progress.** I'll do my best to only merge in completed, separate feature branches, but small fixes will be added directly to master from time to time.
+- The current lock screen situation drops the year field sometimes when the date is really long characterwise.
 - `LXAppearance` is not symlink friendly. A wrapper, `dots-lxappearance` is included and PATHed. Use that instead to keep gtk symlinks intact. You shouldn't really need to use it anyway, as the retheme-by-... commands should handle everything.
-- Cursors still aren't fully cooperating with set settings.
+- Cursors might still not fully cooperate with set settings.
 - There's an issue I'm experiencing in the Atom editor on my 4k resolution Virtualbox setup where sections of the window will not render. Don't know what exactly is causing this yet, but a workaround is to either use multiple windows, or to have terminal open in the same workspace.
 
 ## Versioning Rules
@@ -61,19 +62,19 @@ This is an alternate branch with slightly different default configs built specif
  - Minor version number increments indicate the addition of either a complete new feature or a change that requires running `updateDots` to complete the update. **The `0.1` release denotes the initial public posting to reddit.com/r/unixporn.**
  - Patch version number increments indicate any other public commit to `master` that definitely does not require the user to perform any action other than pulling the latest version from GitHub to make active. **The addition of these versioning rules to this documentation constitutes version 0.1.1**
 
-## Roadmap of Definite Upcoming Changes (in priority order)
-1. Better WebDev tools/configurations, such as linters and other utilities.
-2. Weather Widget
-3. Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
-4. `updateDots` optimizations.
-5. Improve Firefox theme handling, automatically handle extensions
-6. Improve Atom and Intellij color themes and Compton config.
+## Roadmap of Upcoming Changes (in priority order)
+1. **[Released Oct. 26, 2018]** Better WebDev tools/configurations, such as linters and other utilities + Improved Atom Theming.
+2. Weather Widget for Polybar
+3. **[On Hold Indefinitely]** Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
+4. `updateDots` optimizations (some of the package managers included will sometimes reinstall already up-to-date packages. Need to stop this.)
+5. Improve Firefox theme handling, automatically handle extensions.
+6. Improve Compton/Dunst configs further, re-explore Intellij color themes.
 7. Explore base switch to straight Arch Linux, Manjaro-Architect, or a completely new flavor entirely.
 8. Prettier bootup process.
 9. Multiple (human) user login setups/login manager
 
-
-
+### Notes regarding roadmap status
+- I attempted looking into the current state of Intellij/wal integrations/alternate Intellij themes, and I was very disappointed. Thus, **this specific pywal integration is indefinitely on hold.** I will still be releasing an update with plugins and more customizations for Intellij, but, for the time being, I'm sticking to their Darcula theme. If anyone wants to try their hand at making pywalled intellij not look bad, I've included my progress thus far in the branch `intellij-pywal`
 
 ## Special Thanks
 I'd like to thank all the Manjaro/Arch Linux maintainers out there, especially [Bernhard Landauer](https://github.com/oberon-manjaro), aka "oberon", the primary maintainer of the Manjaro i3 Community Edition.
