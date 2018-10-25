@@ -63,7 +63,7 @@ This is an alternate branch with slightly different default configs built specif
  - Patch version number increments indicate any other public commit to `master` that definitely does not require the user to perform any action other than pulling the latest version from GitHub to make active. **The addition of these versioning rules to this documentation constitutes version 0.1.1**
 
 ## Roadmap of Upcoming Changes (in priority order)
-1. **[Released Oct. 26, 2018]** Better WebDev tools/configurations, such as linters and other utilities + Improved Atom Theming.
+1. **[Released Oct. 25, 2018]** Better WebDev tools/configurations, such as linters and other utilities + Improved Atom Theming.
 2. Weather Widget for Polybar
 3. **[On Hold Indefinitely]** Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
 4. `updateDots` optimizations/refactor installation
