@@ -66,7 +66,7 @@ This is an alternate branch with slightly different default configs built specif
 1. **[Released Oct. 26, 2018]** Better WebDev tools/configurations, such as linters and other utilities + Improved Atom Theming.
 2. Weather Widget for Polybar
 3. **[On Hold Indefinitely]** Intellij Idea configurations for Java/Scala/Kotlin development, as well as `wal` integration.
-4. `updateDots` optimizations (some of the package managers included will sometimes reinstall already up-to-date packages. Need to stop this.)
+4. `updateDots` optimizations/refactor installation
 5. Improve Firefox theme handling, automatically handle extensions.
 6. Improve Compton/Dunst configs further, re-explore Intellij color themes.
 7. Explore base switch to straight Arch Linux, Manjaro-Architect, or a completely new flavor entirely.
